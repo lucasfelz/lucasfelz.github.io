@@ -1,0 +1,26 @@
+languageCode = "pt-br"
+languageName = "Português (Brasil)"
+weight = 1
+title = "Lucas Felz"
+
+[params]
+  displayName = "PT-BR"
+  isoCode = "pt-br"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "Pentester em formação | CTF Player | Writeups em Português"
+
+[author]
+  name = "Lucas Felz"
+  image = "img/avatar.jpg"
+  headline = "Pentester | CTF Player | Security Enthusiast"
+  bio = "Pentester em treinamento com foco em infraestrutura e Active Directory. Compartilhando writeups de CTFs em português."
+  
+  links = [
+    { github = "https://github.com/lucasfelz" }
+  ]
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  cardView = true

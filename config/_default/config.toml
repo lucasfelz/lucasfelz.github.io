@@ -1,0 +1,10 @@
+baseURL = 'https://lucasfelz.github.io/'
+languageCode = 'pt-br'
+title = 'Lucas Felz - Pentest & Security'
+theme = 'blowfish'
+publishDir = 'docs'
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.87.0"
