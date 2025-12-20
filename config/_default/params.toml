@@ -1,0 +1,67 @@
+colorScheme = "ocean"
+defaultAppearance = "dark"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+enableImageOptimization = true
+enableQuicklink = true
+
+mainSections = ["writeups", "posts"]
+robots = ""
+
+[header]
+  layout = "basic"
+
+[footer]
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "background"
+  homepageImage = "img/background.jpg"
+  showRecent = true
+  showRecentItems = 10
+  showMoreLink = true
+  showMoreLinkDest = "/writeups"
+  cardView = true
+  cardViewScreenWidth = false
+
+[article]
+  showDate = true
+  showDateUpdated = false
+  showAuthor = true
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  showViews = false
+  showLikes = false
+  showTableOfContents = true
+  showTaxonomies = true
+  showWordCount = true
+  showComments = false
+  sharingLinks = ["facebook", "twitter", "reddit", "pinterest", "linkedin", "email"]
+
+[list]
+  showBreadcrumbs = true
+  showSummary = true
+  showTableOfContents = false
+  groupByYear = true
+  cardView = true
+
+[sitemap]
+  excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+  showTermCount = true
+
+[fathomAnalytics]
+  site = ""
+
+[verification]
+  google = ""
+  bing = ""
+  pinterest = ""
+  yandex = ""
