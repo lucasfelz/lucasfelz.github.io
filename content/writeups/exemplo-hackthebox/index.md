@@ -130,4 +130,4 @@ Flag: [REDACTED]
 
 ---
 
-**Nota**: Este é um write-up de exemplo. Substitua com seu conteúdo real!
+**Nota**: Este é um write-up de exemplo para confirmar que o site está funcionando.

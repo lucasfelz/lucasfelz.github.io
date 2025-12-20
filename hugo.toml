@@ -1,10 +1,18 @@
 baseURL = "https://lucasfelz.github.io/"
-languageCode = "pt-br"
-defaultContentLanguage = "pt"
+languageCode = "en-us"
+defaultContentLanguage = "en"
 title = "Lucas Felz"
+theme = "blowfish"
+
+enableRobotsTXT = true
 
 [languages]
-  [languages.pt]
-    languageName = "Português"
+  [languages.en]
+    languageName = "English"
     weight = 1
+
+    [languages.en.params]
+      description = "Cybersecurity Portfolio | Infrastructure"
+      rtl = false
+      dateformat = "2006-01-02"
 
