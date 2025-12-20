@@ -1,11 +1,11 @@
 baseURL = "https://lucasfelz.github.io/lucasfelz-writeups/"
 languageCode = "pt-br"
 title = "Vuln-Hunter"
-theme = "blowfish"
 
 enableEmoji = true
 enableRobotsTXT = true
-paginate = 10
+[pagination]
+  pagerSize = 10
 summaryLength = 30
 
 [outputs]
