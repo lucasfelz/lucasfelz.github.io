@@ -289,7 +289,6 @@ impacket-psexec administrator@10.129.45.7 -hashes <hash_adm>
 
 Access to Administrator account and catch the flag
 
-![img52](/img/Pasted_image_20251224210045.png)
 
 ## Lessons Learned
 
