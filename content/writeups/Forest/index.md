@@ -70,11 +70,15 @@ ldapsearch -x -H ldap://<TARGET_IP>:389 -b dc=htb,dc=local" | grep -e "#"
 
 
 At this point, I was looking for something I already knew existed
-![[Pasted image 20251224032259.png]]
+
+![img1(/static/img/Pasted image 20251224032259.png)]
+
 *Exist a non-common service in this forest*
 
 We can use the windapsearch tool for more recon, but at this point, is the same info that we have
-![[Pasted image 20251223042221.png]]
+
+![img2(/static/img/Pasted image 20251223042221.png)]
+
 *github.com/ropnop/windapsearch*
 
 ```bash
@@ -85,8 +89,10 @@ use windapsearch.py -h for understand the parameters used here or possible to us
 ```bash
 ./windapsearch.py -d <domain> --dc-ip <target_IP> --custom "objectClass=*"
 ```
-![[Pasted image 20251223051802.png]]
-![[Pasted image 20251223051820.png]]
+
+![img3(/static/img/Pasted image 20251223051802.png)]
+
+![img4(/static/img/Pasted image 20251223051820.png)]
 
 Installing the requisites
 ![[Pasted image 20251223051628.png]]
