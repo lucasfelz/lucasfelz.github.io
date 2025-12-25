@@ -99,6 +99,7 @@ We can use the windapsearch tool for more recon, but at this point, is the same 
 ```bash
 ./windapsearch.py -d <domain> --dc-ip <target_IP> -U
 ```
+
 use windapsearch.py -h for understand the parameters used here or possible to use in future;
 
 ```bash
@@ -140,7 +141,7 @@ impacket-GetNPUsers htb.local/svc-alfresco -dc-ip 10.129.45.7 -no-pass
 
 Then, we catch the hash and save in .txt mode with a text editor; I like vim or nvim;
 
-![img19](/img/Pasted image 20251224033407.png
+![img19](https://lucasfelz.github.io/img/Pasted_image_20251224033407.png)
 
 
 
