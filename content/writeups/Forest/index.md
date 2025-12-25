@@ -17,6 +17,12 @@ ShowTableOfContents: "true"
 | **Operation System** | Windows     |
 | IP                   | 10.129.45.7 |
 
+## Executive Summary
+
+In this write-up, I demonstrate the full compromise of the Forest machine from Hack The Box, an Active Directory environment rated as Easy. The attack starts with network enumeration, where an LDAP misconfiguration allows anonymous access and exposes valid domain users, enabling an AS-REP Roasting attack.
+With the recovered credentials, I gain an initial foothold in the domain and continue enumerating the environment. A domain misconfiguration allows the compromised account to perform a DCSync attack, leading to the extraction of domain hashes and full Domain Administrator compromise.
+This machine demonstrates how common Active Directory misconfigurations, combined with insufficient hardening, can result in a complete domain compromise.
+
 ## Recon
 
 As always, we start with recon, port scan.
