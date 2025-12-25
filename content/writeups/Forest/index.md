@@ -235,7 +235,7 @@ Get-ADGroup "Privileged IT Accounts" -Properties MemberOf | Select-Object -Expan
 
 ![img41](/img/Pasted_image_20251225052506.png)
 
-![imag42](/img/Pasted image 20251225052617.png)
+![img42](https://lucasfelz.github.io/img/Pasted_image_20251225052617.png)
 
 Now, we need investigate: what this group can do?
 The Microsoft Documentation is the best local for this
