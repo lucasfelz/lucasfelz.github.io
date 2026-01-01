@@ -12,6 +12,10 @@ robots = ""
 
 [header]
   layout = "fixed"
+  logo = "img/logo.png"
+  logoDark = "img/logo.png"  # Logo para modo escuro
+  logoWidth = 80  # Largura em pixels
+  logoHeight = 80
 
 [footer]
   showCopyright = true
