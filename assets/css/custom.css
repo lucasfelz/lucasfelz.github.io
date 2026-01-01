@@ -63,7 +63,7 @@
               inset 0 0 10px rgba(139, 0, 255, 0.2);
 }
 
-/* ===== ADICIONE DAQUI PRA BAIXO ===== */
+/* ===== MANTÉM PÁGINA INICIAL IGUAL ===== */
 
 /* Textos principais em roxo néon */
 .prose, 
@@ -120,4 +120,18 @@ article h3,
 .dark button:hover {
   background-color: rgba(139, 0, 255, 0.3);
   box-shadow: 0 0 15px rgba(139, 0, 255, 0.8);
+}
+
+/* ===== SÓ AJUSTA LEGIBILIDADE DOS WRITEUPS ===== */
+
+/* Títulos H2, H3 dentro de artigos - Roxo mais claro */
+.dark article h2,
+.dark article h3 {
+  color: rgb(214, 153, 255) !important;
+}
+
+/* Textos do corpo - Roxo mais claro e legível */
+.dark article p,
+.dark article li {
+  color: rgb(214, 153, 255) !important;
 }
