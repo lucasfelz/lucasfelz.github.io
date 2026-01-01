@@ -1,5 +1,5 @@
-baseURL = "https://lucasfelz.github.io/lucasfelz-writeups/"
-languageCode = "pt-br"
+baseURL = "https://lucasfelz.github.io/"
+languageCode = "en"
 title = "Vuln-Hunter"
 
 enableEmoji = true

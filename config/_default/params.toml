@@ -11,7 +11,7 @@ mainSections = ["writeups", "posts"]
 robots = ""
 
 [header]
-  layout = "fixed"
+  layout = "basic"
   logo = "img/logo.png"
   logoDark = "img/logo.png"  # Logo para modo escuro
   logoWidth = 80  # Largura em pixels
