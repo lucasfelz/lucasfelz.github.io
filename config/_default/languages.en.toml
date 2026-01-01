@@ -4,20 +4,19 @@ displayName = "EN"
 isoCode = "en"
 weight = 1
 rtl = false
-
 title = "Vuln-Hunter"
 
 [params]
   displayName = "EN"
   isoCode = "en"
   dateFormat = "2 January 2006"
-
-[author]
-  name = "Lucas Felz"
-  image = "img/logo.png"
-  headline = "Security Researcher & CTF Player"
-  bio = "Passionate about cybersecurity, pentesting and CTF write-ups. Sharing knowledge about vulnerabilities, exploits and ethical hacking techniques."
-  links = [
-    { email = "mailto:lucasfelz@gmail.com" },
-    { github = "https://github.com/lucasfelz" },
-  ]
+  
+  [params.author]
+    name = "Lucas Felz"
+    image = "https://avatars.githubusercontent.com/u/188224184"
+    headline = "Security Researcher & CTF Player"
+    bio = "Passionate about cybersecurity, pentesting and CTF write-ups."
+    links = [
+      { email = "mailto:lucasfelz@gmail.com" },
+      { github = "https://github.com/lucasfelz" },
+    ]

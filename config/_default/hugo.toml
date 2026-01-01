@@ -1,26 +1,40 @@
+theme = "blowfish"
 baseURL = "https://lucasfelz.github.io/"
-languageCode = "en"
-title = "Vuln-Hunter"
-
-enableEmoji = true
+defaultContentLanguage = "en"
 enableRobotsTXT = true
-[pagination]
-  pagerSize = 10
-summaryLength = 30
+summaryLength = 0
+buildDrafts = false
+buildFuture = false
+enableEmoji = true
 
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
+[pagination]
+  pagerSize = 100
+
+[imaging]
+  anchor = 'Center'
 
 [taxonomies]
   tag = "tags"
   category = "categories"
+  author = "authors"
   series = "series"
 
 [sitemap]
-  changefreq = "weekly"
-  filename = "sitemap.xml"
+  changefreq = 'daily'
+  filename = 'sitemap.xml'
   priority = 0.5
 
-[minify]
-  disableXML = true
-  minifyOutput = true
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[tableOfContents]
+  startLevel = 2
+  endLevel = 4
+
