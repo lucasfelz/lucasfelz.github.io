@@ -11,7 +11,7 @@ mainSections = ["writeups", "posts"]
 robots = ""
 
 [header]
-  layout = "basic"
+  layout = "fixed"
 
 [footer]
   showCopyright = true
@@ -20,8 +20,8 @@ robots = ""
   showScrollToTop = true
 
 [homepage]
-  layout = "background"
-  homepageImage = "img/background.jpg"
+  layout = "profile"
+  homepageImage = "img/logo.png"
   showRecent = true
   showRecentItems = 10
   showMoreLink = true

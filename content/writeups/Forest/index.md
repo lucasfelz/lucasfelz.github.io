@@ -7,6 +7,8 @@ tags:
 categories: '["CTF", "HackTheBox"]'
 series: '["HackTheBox Easy"]'
 ShowTableOfContents: "true"
+showHero: true
+heroStyle: "background"
 ---
 ---
 ## Machine Information
