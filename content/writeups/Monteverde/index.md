@@ -364,11 +364,12 @@ blog.xpnsec.com/azuread-connect-for-redteam/
 ![img31](/img/Pasted_image_20251227072325.png)
 
 we can't enum the services with Get-Service
-(/img/Pasted_image_20251227071941.png)
+![img32](/img/Pasted_image_20251227071941.png)
 
 but we can do it with:
 see the registry property
-(/img/Pasted_image_20251227072554.png)
+
+![img33](/img/Pasted_image_20251227072554.png)
 
 The binary service is miiserver
 
@@ -378,7 +379,7 @@ we can use:
 Get-ItemProperty -Path "path" | Format-list -Property * -Force
 ```
 
-![img32](/img/Pasted_image_20251227131802.png)
+![img34](/img/Pasted_image_20251227131802.png)
 
 the blog say for use this as a script .ps1:
 
@@ -452,11 +453,11 @@ sqlcmd -S MONTEVERDE -Q "use ADsync; select instance_id,keyset_id,entropy from m
 - `-Q`: Execute query and exit
 
 
-![img33](/img/Pasted_image_20251227154831.png)
+![img35](/img/Pasted_image_20251227154831.png)
 
 We need to modify the initial script for:
 
-![img34](/img/Pasted_image_20251227162439.png)
+![img36](/img/Pasted_image_20251227162439.png)
 
 **Modified script:**
 
@@ -516,9 +517,9 @@ Get-ADConnectPassword
 - **Base64ToString:** Decodes Base64 and decrypts in one operation
 - **XPath:** Query language for XML documents
 
-![img35](/img/Pasted_image_20251227162802.png)
+![img37](/img/Pasted_image_20251227162802.png)
 
-![img36](/img/Pasted_image_20251227163253.png)
+![img38](/img/Pasted_image_20251227163253.png)
 
 ## Lessons Learned
 
