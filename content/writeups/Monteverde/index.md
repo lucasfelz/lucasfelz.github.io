@@ -173,7 +173,7 @@ rpcclient -U "" -N 10.129.228.111 --command="enumdomusers"
 
 ![img13](/img/Pasted_image_20251227053618.png)
 
-### Foothold
+## Foothold
 
 ### Password Spraying Attack
 
@@ -282,7 +282,7 @@ evil-winrm -i 10.129.228.111 -u mhope -p '4n0therD4y@n0th3r$'
 
 ![img21](/img/Pasted_image_20251227065203.png)
 
-### Privilege Escalation
+## Privilege Escalation
 
 System Enumeration
 Nice! Now we need to perform a System Enum
