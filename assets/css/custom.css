@@ -1,6 +1,6 @@
 :root {
   /* Neutral - Escala de cinza/preto para backgrounds e textos */
-  --color-neutral: 0, 0, 0;
+  --color-neutral: 153, 255, 184;
   --color-neutral-50: 255, 255, 255;
   --color-neutral-100: 229, 229, 229;
   --color-neutral-200: 204, 204, 204;
@@ -10,7 +10,7 @@
   --color-neutral-600: 64, 64, 64;
   --color-neutral-700: 38, 38, 38;
   --color-neutral-800: 20, 20, 20;
-  --color-neutral-900: 0, 0, 0;
+  --color-neutral-900: 153, 255, 184;
 
   /* Primary - Verde Néon Cyberpunk */
   --color-primary-50: 230, 255, 237;
