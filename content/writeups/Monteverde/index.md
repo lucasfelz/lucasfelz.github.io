@@ -1,5 +1,5 @@
 ---
-title: Monteverde
+title: HackTheBox - Monteverde
 date: 2025-12-27
 draft: "false"
 description: "Write-up completo de uma máquina medium do HackTheBox"
