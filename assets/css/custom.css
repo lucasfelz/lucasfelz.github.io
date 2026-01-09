@@ -1,137 +1,615 @@
 :root {
-  /* Neutral - Escala de cinza/preto para backgrounds e textos */
-  --color-neutral: 153, 255, 184;
-  --color-neutral-50: 255, 255, 255;
-  --color-neutral-100: 229, 229, 229;
-  --color-neutral-200: 204, 204, 204;
-  --color-neutral-300: 163, 163, 163;
-  --color-neutral-400: 115, 115, 115;
-  --color-neutral-500: 82, 82, 82;
-  --color-neutral-600: 64, 64, 64;
-  --color-neutral-700: 38, 38, 38;
-  --color-neutral-800: 20, 20, 20;
-  --color-neutral-900: 153, 255, 184;
+  /* Neutral - Escala original (fundo escuro mantido) */
+  --color-neutral: 18, 18, 18;
+  --color-neutral-50: 245, 245, 247;
+  --color-neutral-100: 220, 220, 222;
+  --color-neutral-200: 190, 190, 192;
+  --color-neutral-300: 160, 160, 162;
+  --color-neutral-400: 130, 130, 132;
+  --color-neutral-500: 100, 100, 102;
+  --color-neutral-600: 70, 70, 72;
+  --color-neutral-700: 45, 45, 47;
+  --color-neutral-800: 28, 28, 30;   /* Fundo de código */
+  --color-neutral-900: 18, 18, 18;   /* Preto profundo */
 
-  /* Primary - Verde Néon Cyberpunk */
-  --color-primary-50: 230, 255, 237;
-  --color-primary-100: 204, 255, 220;
-  --color-primary-200: 153, 255, 184;
-  --color-primary-300: 102, 255, 147;
-  --color-primary-400: 51, 255, 110;
-  --color-primary-500: 0, 255, 65;
-  --color-primary-600: 0, 230, 59;
-  --color-primary-700: 0, 179, 46;
-  --color-primary-800: 0, 128, 33;
-  --color-primary-900: 0, 77, 20;
+  /* Primary - Vermelho Bujinkan Oficial (DarkRed) */
+  --color-primary-50: 254, 242, 242;
+  --color-primary-100: 254, 226, 226;
+  --color-primary-200: 252, 202, 202;
+  --color-primary-300: 239, 154, 154;
+  --color-primary-400: 220, 100, 100;
+  --color-primary-500: 139, 0, 0;      /* Vermelho bordô oficial Bujinkan */
+  --color-primary-600: 120, 0, 0;
+  --color-primary-700: 100, 0, 0;
+  --color-primary-800: 80, 0, 0;
+  --color-primary-900: 60, 0, 0;
 
-  /* Secondary - Roxo Cyberpunk */
-  --color-secondary-50: 245, 230, 255;
-  --color-secondary-100: 235, 204, 255;
-  --color-secondary-200: 214, 153, 255;
-  --color-secondary-300: 193, 102, 255;
-  --color-secondary-400: 172, 51, 255;
-  --color-secondary-500: 139, 0, 255;
-  --color-secondary-600: 125, 0, 230;
-  --color-secondary-700: 97, 0, 179;
-  --color-secondary-800: 69, 0, 128;
-  --color-secondary-900: 42, 0, 77;
+  /* Gold - Dourado Bujinkan Oficial (Goldenrod) */
+  --color-gold-50: 255, 253, 247;
+  --color-gold-100: 254, 249, 232;
+  --color-gold-200: 253, 240, 200;
+  --color-gold-300: 252, 225, 150;
+  --color-gold-400: 250, 204, 92;
+  --color-gold-500: 218, 165, 32;      /* Ouro oficial Bujinkan */
+  --color-gold-600: 184, 134, 11;
+  --color-gold-700: 146, 107, 9;
+  --color-gold-800: 117, 86, 7;
+  --color-gold-900: 95, 70, 6;
+
+  /* Secondary - Cinza Prateado (mantido) */
+  --color-secondary-50: 250, 250, 252;
+  --color-secondary-100: 230, 232, 235;
+  --color-secondary-200: 200, 203, 208;
+  --color-secondary-300: 170, 175, 182;
+  --color-secondary-400: 140, 145, 155;
+  --color-secondary-500: 110, 115, 125;
+  --color-secondary-600: 85, 90, 100;
+  --color-secondary-700: 60, 65, 75;
+  --color-secondary-800: 40, 45, 55;
+  --color-secondary-900: 25, 28, 35;
 }
 
-/* Efeito de brilho néon */
-.glow-green {
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8),
-               0 0 20px rgba(0, 255, 65, 0.6),
-               0 0 30px rgba(0, 255, 65, 0.4);
+/* ===== EFEITOS BUJINKAN ===== */
+
+.glow-blood {
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.8),
+               0 0 20px rgba(139, 0, 0, 0.5),
+               0 0 30px rgba(139, 0, 0, 0.3);
 }
 
-.glow-purple {
-  text-shadow: 0 0 10px rgba(139, 0, 255, 0.8),
-               0 0 20px rgba(139, 0, 255, 0.6),
-               0 0 30px rgba(139, 0, 255, 0.4);
+.glow-gold {
+  text-shadow: 0 0 8px rgba(218, 165, 32, 0.6),
+               0 0 16px rgba(218, 165, 32, 0.4);
 }
 
-/* Bordas brilhantes */
-.border-glow-green {
-  border: 2px solid rgb(0, 255, 65);
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5),
-              inset 0 0 10px rgba(0, 255, 65, 0.2);
+.border-glow-blood {
+  border: 2px solid rgb(139, 0, 0);
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.6),
+              inset 0 0 8px rgba(139, 0, 0, 0.2);
 }
 
-.border-glow-purple {
-  border: 2px solid rgb(139, 0, 255);
-  box-shadow: 0 0 10px rgba(139, 0, 255, 0.5),
-              inset 0 0 10px rgba(139, 0, 255, 0.2);
+.border-glow-gold {
+  border: 1px solid rgb(218, 165, 32);
+  box-shadow: 0 0 8px rgba(218, 165, 32, 0.4),
+              inset 0 0 5px rgba(218, 165, 32, 0.15);
 }
 
-/* ===== MANTÉM PÁGINA INICIAL IGUAL ===== */
+/* ===== PÁGINA INICIAL - ELEMENTOS PRINCIPAIS ===== */
 
-/* Textos principais em roxo néon */
-.prose, 
-article h1, 
-article h2, 
-article h3,
+/* Título principal (Lucas Felz) - VERMELHO BORDÔ BUJINKAN */
 .dark h1,
-.dark h2, 
-.dark h3,
-.dark .prose {
-  color: rgb(139, 0, 255) !important;
+.dark h1.text-4xl {
+  color: rgb(220, 100, 100) !important;
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+  font-weight: 700;
 }
 
-/* Nome do autor em roxo */
-.dark .author-name,
-.dark h1.text-4xl,
+/* Nome do autor - VERMELHO BORDÔ */
+.dark .author-name {
+  color: rgb(220, 100, 100) !important;
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+  font-weight: 700;
+}
+
+/* Subtítulo (Security Researcher & CTF Player) - DOURADO BUJINKAN */
 .dark h2.text-2xl {
-  color: rgb(139, 0, 255) !important;
+  color: rgb(250, 204, 92) !important;
+  text-shadow: 0 0 6px rgba(218, 165, 32, 0.3);
+  font-weight: 400;
 }
 
-/* Títulos dos cards em roxo */
+/* Seção "Recent" e outros H2 - Vermelho bordô claro */
+.dark h2 {
+  color: rgb(239, 154, 154) !important;
+  text-shadow: none;
+  font-weight: 600;
+}
+
+/* H3 genéricos - Branco acinzentado */
+.dark h3 {
+  color: rgb(245, 245, 247) !important;
+  text-shadow: none;
+}
+
+/* Títulos dos cards - Vermelho bordô suave */
 .dark .article-title,
 .dark a h3 {
-  color: rgb(139, 0, 255) !important;
+  color: rgb(239, 154, 154) !important;
+  text-shadow: 0 0 4px rgba(139, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
-/* Brilho néon nos títulos */
-.dark h1,
-.dark h2,
-.dark .article-title {
-  text-shadow: 0 0 10px rgba(139, 0, 255, 0.6),
-               0 0 20px rgba(139, 0, 255, 0.4);
+/* Hover nos títulos dos cards */
+.dark .article-title:hover,
+.dark a:hover h3 {
+  color: rgb(220, 100, 100) !important;
+  text-shadow: 0 0 12px rgba(139, 0, 0, 0.6);
+  transform: translateY(-2px);
 }
 
-/* Links em verde néon */
+/* Metadados - Cinza médio */
+.dark .article-meta,
+.dark .meta-info,
+.dark time,
+.dark article time,
+.dark .reading-time {
+  color: rgb(160, 160, 162) !important;
+  text-shadow: none;
+  font-size: 0.9rem;
+}
+
+/* Tags - Vermelho bordô com fundo */
+.dark .tag,
+.dark .badge,
+.dark .article-tags a {
+  background-color: rgba(139, 0, 0, 0.15) !important;
+  color: rgb(252, 202, 202) !important;
+  border: 1px solid rgba(139, 0, 0, 0.4);
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.dark .tag:hover,
+.dark .badge:hover,
+.dark .article-tags a:hover {
+  background-color: rgba(139, 0, 0, 0.25) !important;
+  border-color: rgba(139, 0, 0, 0.6);
+}
+
+/* Links gerais - Vermelho bordô */
 .dark a:not(.article-link) {
-  color: rgb(0, 255, 65) !important;
+  color: rgb(220, 100, 100) !important;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .dark a:hover {
-  color: rgb(51, 255, 110) !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  color: rgb(239, 154, 154) !important;
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
 }
 
-/* Botões em roxo */
+/* Botão "Show More" - Gradiente Bujinkan (vermelho/dourado) */
 .dark button,
 .dark .button {
-  background-color: rgba(139, 0, 255, 0.2);
-  border: 2px solid rgb(139, 0, 255);
-  color: rgb(139, 0, 255);
-  box-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(218, 165, 32, 0.1));
+  border: 2px solid rgb(139, 0, 0);
+  color: rgb(220, 220, 222) !important;
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.4);
+  text-shadow: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.dark button:hover {
-  background-color: rgba(139, 0, 255, 0.3);
-  box-shadow: 0 0 15px rgba(139, 0, 255, 0.8);
+.dark button:hover,
+.dark .button:hover {
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(218, 165, 32, 0.15));
+  border-color: rgb(218, 165, 32);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.6), 0 0 15px rgba(218, 165, 32, 0.3);
+  transform: translateY(-2px);
+  color: rgb(245, 245, 247) !important;
 }
 
-/* ===== SÓ AJUSTA LEGIBILIDADE DOS WRITEUPS ===== */
+/* Parágrafos gerais na home */
+.dark p:not(article p):not(.prose p) {
+  color: rgb(190, 190, 192) !important;
+}
 
-/* Títulos H2, H3 dentro de artigos - Roxo mais claro */
+/* ===== WRITEUPS E ARTIGOS - HIERARQUIA VISUAL ===== */
+
+/* H1 dentro de artigos - VERMELHO BORDÔ forte */
+.dark article h1,
+.dark .prose h1 {
+  color: rgb(220, 100, 100) !important;
+  text-shadow: 0 0 12px rgba(139, 0, 0, 0.5);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* H2 dentro de artigos - Vermelho bordô médio */
 .dark article h2,
-.dark article h3 {
-  color: rgb(214, 153, 255) !important;
+.dark .prose h2 {
+  color: rgb(239, 154, 154) !important;
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* Textos do corpo - Roxo mais claro e legível */
+/* H3 dentro de artigos - DOURADO BUJINKAN */
+.dark article h3,
+.dark .prose h3 {
+  color: rgb(250, 204, 92) !important;
+  text-shadow: 0 0 6px rgba(218, 165, 32, 0.3);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* H4, H5, H6 - Cinza claro */
+.dark article h4,
+.dark article h5,
+.dark article h6,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: rgb(220, 220, 222) !important;
+  text-shadow: none;
+}
+
+/* Textos do corpo - Branco acinzentado legível */
 .dark article p,
-.dark article li {
-  color: rgb(214, 153, 255) !important;
+.dark article li,
+.dark .prose p,
+.dark .prose li {
+  color: rgb(220, 220, 222) !important;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* ===== CÓDIGO E ELEMENTOS TÉCNICOS ===== */
+
+/* Código inline - Dourado claro */
+.dark code,
+.dark :not(pre) > code,
+.dark .prose code {
+  color: rgb(252, 225, 150) !important;
+  background-color: rgba(218, 165, 32, 0.12) !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(218, 165, 32, 0.3);
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+}
+
+/* Blocos de código - Fundo ORIGINAL com borda vermelha bordô */
+.dark pre {
+  background-color: rgb(28, 28, 30) !important;
+  border: 1px solid rgb(70, 70, 72) !important;
+  border-left: 4px solid rgb(139, 0, 0) !important;
+  color: rgb(220, 220, 222) !important;
+  padding: 18px;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin: 1.5rem 0;
+}
+
+/* Código dentro de pre */
+.dark pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: rgb(220, 220, 222) !important;
+}
+
+/* Texto dentro de pre */
+.dark pre * {
+  color: rgb(220, 220, 222) !important;
+}
+
+/* Spans coloridos inline */
+.dark span[style*="color"] {
+  filter: brightness(1.5) !important;
+}
+
+/* Strong/Bold - DOURADO para destaque */
+.dark article strong,
+.dark article b,
+.dark .prose strong,
+.dark .prose b {
+  color: rgb(250, 204, 92) !important;
+  font-weight: 700;
+}
+
+/* Itálico/Ênfase - Cinza prateado */
+.dark article em,
+.dark article i,
+.dark .prose em,
+.dark .prose i {
+  color: rgb(200, 203, 208) !important;
+  font-style: italic;
+}
+
+/* ===== TABELAS ===== */
+
+/* Tabela - Estrutura base ORIGINAL */
+.dark table {
+  border-collapse: collapse;
+  border: 1px solid rgb(70, 70, 72) !important;
+  background-color: rgba(28, 28, 30, 0.6) !important;
+  width: 100%;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Cabeçalho da tabela - Gradiente Bujinkan */
+.dark th {
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(218, 165, 32, 0.1)) !important;
+  color: rgb(245, 245, 247) !important;
+  border-bottom: 2px solid rgb(139, 0, 0) !important;
+  padding: 12px 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Células da tabela */
+.dark td {
+  border: 1px solid rgb(70, 70, 72) !important;
+  color: rgb(220, 220, 222) !important;
+  padding: 10px 16px;
+}
+
+/* Linhas alternadas */
+.dark tbody tr:nth-child(even) {
+  background-color: rgba(45, 45, 47, 0.3);
+}
+
+/* Hover nas linhas */
+.dark tbody tr:hover {
+  background-color: rgba(139, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+}
+
+/* Texto em células */
+.dark table * {
+  color: rgb(220, 220, 222) !important;
+}
+
+/* ===== LISTAS ===== */
+
+/* Itens de lista */
+.dark ul li,
+.dark ol li {
+  color: rgb(220, 220, 222) !important;
+  margin: 6px 0;
+  line-height: 1.7;
+}
+
+/* Marcadores - vermelho bordô */
+.dark ul li::marker {
+  color: rgb(139, 0, 0);
+  font-size: 1.1em;
+}
+
+/* Numeração - vermelho bordô */
+.dark ol li::marker {
+  color: rgb(139, 0, 0);
+  font-weight: bold;
+}
+
+/* Listas aninhadas */
+.dark ul ul li,
+.dark ol ol li,
+.dark ul ol li,
+.dark ol ul li {
+  margin: 4px 0;
+}
+
+/* ===== CITAÇÕES (BLOCKQUOTE) ===== */
+
+/* Blockquote - Borda dourada */
+.dark blockquote {
+  border-left: 4px solid rgb(218, 165, 32);
+  background: linear-gradient(90deg, rgba(139, 0, 0, 0.08), rgba(218, 165, 32, 0.05));
+  color: rgb(220, 220, 222) !important;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  font-style: italic;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark blockquote p {
+  color: rgb(220, 220, 222) !important;
+  margin: 0.5rem 0;
+}
+
+.dark blockquote cite {
+  color: rgb(190, 190, 192) !important;
+  font-size: 0.9em;
+}
+
+/* ===== DIVISORES HORIZONTAIS ===== */
+
+.dark hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgb(139, 0, 0),
+    rgb(218, 165, 32),
+    rgb(139, 0, 0),
+    transparent
+  );
+  margin: 2rem 0;
+}
+
+/* ===== LINKS EM ARTIGOS ===== */
+
+.dark article a,
+.dark .prose a {
+  color: rgb(239, 154, 154) !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(139, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.dark article a:hover,
+.dark .prose a:hover {
+  color: rgb(220, 100, 100) !important;
+  text-decoration-color: rgba(139, 0, 0, 0.7);
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+}
+
+/* ===== SYNTAX HIGHLIGHTING ===== */
+
+.dark .highlight,
+.dark .chroma {
+  background: rgb(28, 28, 30) !important;
+  border-radius: 8px;
+}
+
+.dark .hljs,
+.dark .language-bash,
+.dark .language-shell,
+.dark .language-python,
+.dark .language-javascript,
+.dark .language-html,
+.dark .language-css {
+  background: rgb(28, 28, 30) !important;
+  color: rgb(220, 220, 222) !important;
+}
+
+/* Keywords - Vermelho bordô */
+.dark .hljs-keyword,
+.dark .hljs-selector-tag,
+.dark .hljs-built_in,
+.dark .hljs-name {
+  color: rgb(220, 100, 100) !important;
+}
+
+/* Strings - Dourado */
+.dark .hljs-string,
+.dark .hljs-attr,
+.dark .hljs-attribute {
+  color: rgb(252, 225, 150) !important;
+}
+
+/* Números - Dourado claro */
+.dark .hljs-number,
+.dark .hljs-literal {
+  color: rgb(250, 204, 92) !important;
+}
+
+/* Comentários */
+.dark .hljs-comment,
+.dark .hljs-quote {
+  color: rgb(130, 130, 132) !important;
+  font-style: italic;
+}
+
+/* Funções - Cinza prateado */
+.dark .hljs-function,
+.dark .hljs-title {
+  color: rgb(200, 203, 208) !important;
+}
+
+/* Variáveis */
+.dark .hljs-variable,
+.dark .hljs-template-variable {
+  color: rgb(220, 220, 222) !important;
+}
+
+/* ===== OVERRIDES DE SEGURANÇA ===== */
+
+.dark [style*="color: black"],
+.dark [style*="color:#000"],
+.dark [style*="color: rgb(0, 0, 0)"],
+.dark [style*="color:black"] {
+  color: rgb(220, 220, 222) !important;
+}
+
+.dark [style*="background: white"],
+.dark [style*="background:#fff"],
+.dark [style*="background-color: white"] {
+  background-color: rgba(28, 28, 30, 0.8) !important;
+}
+
+.dark article span:not([style]):not([class]),
+.dark .prose span:not([style]):not([class]) {
+  color: inherit !important;
+}
+
+/* ===== SCROLLBAR - Gradiente Bujinkan ===== */
+
+.dark ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background: rgb(28, 28, 30);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgb(28, 28, 30);
+  border-radius: 6px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(139, 0, 0), rgb(218, 165, 32));
+  border-radius: 6px;
+  border: 2px solid rgb(28, 28, 30);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgb(220, 100, 100), rgb(250, 204, 92));
+}
+
+.dark ::-webkit-scrollbar-corner {
+  background: rgb(28, 28, 30);
+}
+
+.dark * {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(139, 0, 0) rgb(28, 28, 30);
+}
+
+/* ===== SELEÇÃO DE TEXTO ===== */
+
+.dark ::selection {
+  background-color: rgba(139, 0, 0, 0.4);
+  color: rgb(245, 245, 247);
+}
+
+.dark ::-moz-selection {
+  background-color: rgba(139, 0, 0, 0.4);
+  color: rgb(245, 245, 247);
+}
+
+/* ===== TRANSIÇÕES E ANIMAÇÕES ===== */
+
+.dark a,
+.dark button,
+.dark .article-title,
+.dark .tag {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark h1,
+.dark h2,
+.dark h3 {
+  animation: none !important;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 768px) {
+  .dark h1 {
+    font-size: 2rem;
+  }
+  
+  .dark h2 {
+    font-size: 1.5rem;
+  }
+  
+  .dark pre {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+  
+  .dark table {
+    font-size: 0.9rem;
+  }
+  
+  .dark th,
+  .dark td {
+    padding: 8px 12px;
+  }
 }
