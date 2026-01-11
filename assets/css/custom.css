@@ -1,6 +1,6 @@
 :root {
-  /* Neutral - Escala original (fundo escuro mantido) */
-  --color-neutral: 18, 18, 18;
+  /* Neutral - Ayu Dark (preto azulado profundo) */
+  --color-neutral: 10, 14, 20;
   --color-neutral-50: 245, 245, 247;
   --color-neutral-100: 220, 220, 222;
   --color-neutral-200: 190, 190, 192;
@@ -9,113 +9,113 @@
   --color-neutral-500: 100, 100, 102;
   --color-neutral-600: 70, 70, 72;
   --color-neutral-700: 45, 45, 47;
-  --color-neutral-800: 28, 28, 30;   /* Fundo de código */
-  --color-neutral-900: 18, 18, 18;   /* Preto profundo */
+  --color-neutral-800: 25, 24, 26;   /* Fundo de código */
+  --color-neutral-900: 10, 14, 20;   /* Preto azulado */
 
-  /* Primary - Vermelho Bujinkan Oficial (DarkRed) */
-  --color-primary-50: 254, 242, 242;
-  --color-primary-100: 254, 226, 226;
-  --color-primary-200: 252, 202, 202;
-  --color-primary-300: 239, 154, 154;
-  --color-primary-400: 220, 100, 100;
-  --color-primary-500: 139, 0, 0;      /* Vermelho bordô oficial Bujinkan */
-  --color-primary-600: 120, 0, 0;
-  --color-primary-700: 100, 0, 0;
-  --color-primary-800: 80, 0, 0;
-  --color-primary-900: 60, 0, 0;
+  /* Primary - Azul Ayu (céu suave) */
+  --color-primary-50: 230, 242, 255;
+  --color-primary-100: 205, 230, 255;
+  --color-primary-200: 180, 218, 255;
+  --color-primary-300: 130, 194, 255;
+  --color-primary-400: 89, 194, 255;
+  --color-primary-500: 89, 194, 255;      /* Azul principal Ayu */
+  --color-primary-600: 58, 139, 218;
+  --color-primary-700: 41, 123, 198;
+  --color-primary-800: 33, 98, 158;
+  --color-primary-900: 25, 73, 118;
 
-  /* Gold - Dourado Bujinkan Oficial (Goldenrod) */
+  /* Gold - Dourado Ayu (amarelo suave) */
   --color-gold-50: 255, 253, 247;
-  --color-gold-100: 254, 249, 232;
-  --color-gold-200: 253, 240, 200;
-  --color-gold-300: 252, 225, 150;
-  --color-gold-400: 250, 204, 92;
-  --color-gold-500: 218, 165, 32;      /* Ouro oficial Bujinkan */
-  --color-gold-600: 184, 134, 11;
-  --color-gold-700: 146, 107, 9;
-  --color-gold-800: 117, 86, 7;
-  --color-gold-900: 95, 70, 6;
+  --color-gold-100: 255, 248, 230;
+  --color-gold-200: 255, 238, 200;
+  --color-gold-300: 255, 228, 170;
+  --color-gold-400: 255, 180, 84;
+  --color-gold-500: 255, 180, 84;      /* Dourado Ayu */
+  --color-gold-600: 255, 158, 68;
+  --color-gold-700: 230, 141, 61;
+  --color-gold-800: 204, 125, 54;
+  --color-gold-900: 178, 109, 47;
 
-  /* Secondary - Cinza Prateado (mantido) */
-  --color-secondary-50: 250, 250, 252;
-  --color-secondary-100: 230, 232, 235;
-  --color-secondary-200: 200, 203, 208;
-  --color-secondary-300: 170, 175, 182;
-  --color-secondary-400: 140, 145, 155;
-  --color-secondary-500: 110, 115, 125;
-  --color-secondary-600: 85, 90, 100;
-  --color-secondary-700: 60, 65, 75;
-  --color-secondary-800: 40, 45, 55;
-  --color-secondary-900: 25, 28, 35;
+  /* Secondary - Verde Ayu (lima) */
+  --color-secondary-50: 247, 254, 235;
+  --color-secondary-100: 236, 252, 215;
+  --color-secondary-200: 220, 249, 180;
+  --color-secondary-300: 194, 217, 76;
+  --color-secondary-400: 194, 217, 76;
+  --color-secondary-500: 194, 217, 76;      /* Verde lima Ayu */
+  --color-secondary-600: 174, 220, 70;
+  --color-secondary-700: 154, 195, 62;
+  --color-secondary-800: 134, 170, 54;
+  --color-secondary-900: 114, 145, 46;
 }
 
-/* ===== EFEITOS BUJINKAN ===== */
+/* ===== EFEITOS AYU ===== */
 
-.glow-blood {
-  text-shadow: 0 0 10px rgba(139, 0, 0, 0.8),
-               0 0 20px rgba(139, 0, 0, 0.5),
-               0 0 30px rgba(139, 0, 0, 0.3);
+.glow-blue {
+  text-shadow: 0 0 10px rgba(89, 194, 255, 0.6),
+               0 0 20px rgba(89, 194, 255, 0.4),
+               0 0 30px rgba(89, 194, 255, 0.2);
 }
 
 .glow-gold {
-  text-shadow: 0 0 8px rgba(218, 165, 32, 0.6),
-               0 0 16px rgba(218, 165, 32, 0.4);
+  text-shadow: 0 0 8px rgba(255, 180, 84, 0.5),
+               0 0 16px rgba(255, 180, 84, 0.3);
 }
 
-.border-glow-blood {
-  border: 2px solid rgb(139, 0, 0);
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.6),
-              inset 0 0 8px rgba(139, 0, 0, 0.2);
+.border-glow-blue {
+  border: 2px solid rgb(89, 194, 255);
+  box-shadow: 0 0 10px rgba(89, 194, 255, 0.5),
+              inset 0 0 8px rgba(89, 194, 255, 0.15);
 }
 
 .border-glow-gold {
-  border: 1px solid rgb(218, 165, 32);
-  box-shadow: 0 0 8px rgba(218, 165, 32, 0.4),
-              inset 0 0 5px rgba(218, 165, 32, 0.15);
+  border: 1px solid rgb(255, 180, 84);
+  box-shadow: 0 0 8px rgba(255, 180, 84, 0.4),
+              inset 0 0 5px rgba(255, 180, 84, 0.15);
 }
 
 /* ===== PÁGINA INICIAL - ELEMENTOS PRINCIPAIS ===== */
 
-/* Título principal (Lucas Felz) - VERMELHO BORDÔ BUJINKAN */
+/* Título principal (Lucas Felz) - AZUL AYU */
 .dark h1,
 .dark h1.text-4xl {
-  color: rgb(220, 100, 100) !important;
-  text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+  color: rgb(89, 194, 255) !important;
+  text-shadow: 0 0 10px rgba(89, 194, 255, 0.4);
   font-weight: 700;
 }
 
-/* Nome do autor - VERMELHO BORDÔ */
+/* Nome do autor - AZUL AYU */
 .dark .author-name {
-  color: rgb(220, 100, 100) !important;
-  text-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+  color: rgb(89, 194, 255) !important;
+  text-shadow: 0 0 8px rgba(89, 194, 255, 0.3);
   font-weight: 700;
 }
 
-/* Subtítulo (Security Researcher & CTF Player) - DOURADO BUJINKAN */
+/* Subtítulo (Security Researcher & CTF Player) - DOURADO AYU */
 .dark h2.text-2xl {
-  color: rgb(250, 204, 92) !important;
-  text-shadow: 0 0 6px rgba(218, 165, 32, 0.3);
+  color: rgb(255, 180, 84) !important;
+  text-shadow: 0 0 6px rgba(255, 180, 84, 0.3);
   font-weight: 400;
 }
 
-/* Seção "Recent" e outros H2 - Vermelho bordô claro */
+/* Seção "Recent" e outros H2 - Azul claro */
 .dark h2 {
-  color: rgb(239, 154, 154) !important;
+  color: rgb(130, 194, 255) !important;
   text-shadow: none;
   font-weight: 600;
 }
 
 /* H3 genéricos - Branco acinzentado */
 .dark h3 {
-  color: rgb(245, 245, 247) !important;
+  color: rgb(199, 199, 199) !important;
   text-shadow: none;
 }
 
-/* Títulos dos cards - Vermelho bordô suave */
+/* Títulos dos cards - Azul suave */
 .dark .article-title,
 .dark a h3 {
-  color: rgb(239, 154, 154) !important;
-  text-shadow: 0 0 4px rgba(139, 0, 0, 0.3);
+  color: rgb(130, 194, 255) !important;
+  text-shadow: 0 0 4px rgba(89, 194, 255, 0.2);
   transition: all 0.3s ease;
   font-weight: 600;
 }
@@ -123,8 +123,8 @@
 /* Hover nos títulos dos cards */
 .dark .article-title:hover,
 .dark a:hover h3 {
-  color: rgb(220, 100, 100) !important;
-  text-shadow: 0 0 12px rgba(139, 0, 0, 0.6);
+  color: rgb(89, 194, 255) !important;
+  text-shadow: 0 0 12px rgba(89, 194, 255, 0.5);
   transform: translateY(-2px);
 }
 
@@ -134,18 +134,18 @@
 .dark time,
 .dark article time,
 .dark .reading-time {
-  color: rgb(160, 160, 162) !important;
+  color: rgb(114, 112, 114) !important;
   text-shadow: none;
   font-size: 0.9rem;
 }
 
-/* Tags - Vermelho bordô com fundo */
+/* Tags - Verde lima com fundo */
 .dark .tag,
 .dark .badge,
 .dark .article-tags a {
-  background-color: rgba(139, 0, 0, 0.15) !important;
-  color: rgb(252, 202, 202) !important;
-  border: 1px solid rgba(139, 0, 0, 0.4);
+  background-color: rgba(194, 217, 76, 0.12) !important;
+  color: rgb(194, 217, 76) !important;
+  border: 1px solid rgba(194, 217, 76, 0.3);
   padding: 4px 12px;
   border-radius: 4px;
   text-decoration: none;
@@ -156,29 +156,29 @@
 .dark .tag:hover,
 .dark .badge:hover,
 .dark .article-tags a:hover {
-  background-color: rgba(139, 0, 0, 0.25) !important;
-  border-color: rgba(139, 0, 0, 0.6);
+  background-color: rgba(194, 217, 76, 0.2) !important;
+  border-color: rgba(194, 217, 76, 0.5);
 }
 
-/* Links gerais - Vermelho bordô */
+/* Links gerais - Azul Ayu */
 .dark a:not(.article-link) {
-  color: rgb(220, 100, 100) !important;
+  color: rgb(89, 194, 255) !important;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .dark a:hover {
-  color: rgb(239, 154, 154) !important;
-  text-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
+  color: rgb(130, 194, 255) !important;
+  text-shadow: 0 0 8px rgba(89, 194, 255, 0.4);
 }
 
-/* Botão "Show More" - Gradiente Bujinkan (vermelho/dourado) */
+/* Botão "Show More" - Gradiente Ayu (azul/verde) */
 .dark button,
 .dark .button {
-  background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(218, 165, 32, 0.1));
-  border: 2px solid rgb(139, 0, 0);
+  background: linear-gradient(135deg, rgba(89, 194, 255, 0.15), rgba(194, 217, 76, 0.1));
+  border: 2px solid rgb(89, 194, 255);
   color: rgb(220, 220, 222) !important;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(89, 194, 255, 0.3);
   text-shadow: none;
   padding: 12px 28px;
   border-radius: 6px;
@@ -189,44 +189,44 @@
 
 .dark button:hover,
 .dark .button:hover {
-  background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(218, 165, 32, 0.15));
-  border-color: rgb(218, 165, 32);
-  box-shadow: 0 0 20px rgba(139, 0, 0, 0.6), 0 0 15px rgba(218, 165, 32, 0.3);
+  background: linear-gradient(135deg, rgba(89, 194, 255, 0.25), rgba(194, 217, 76, 0.15));
+  border-color: rgb(194, 217, 76);
+  box-shadow: 0 0 20px rgba(89, 194, 255, 0.5), 0 0 15px rgba(194, 217, 76, 0.3);
   transform: translateY(-2px);
   color: rgb(245, 245, 247) !important;
 }
 
 /* Parágrafos gerais na home */
 .dark p:not(article p):not(.prose p) {
-  color: rgb(190, 190, 192) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
 /* ===== WRITEUPS E ARTIGOS - HIERARQUIA VISUAL ===== */
 
-/* H1 dentro de artigos - VERMELHO BORDÔ forte */
+/* H1 dentro de artigos - AZUL AYU forte */
 .dark article h1,
 .dark .prose h1 {
-  color: rgb(220, 100, 100) !important;
-  text-shadow: 0 0 12px rgba(139, 0, 0, 0.5);
+  color: rgb(89, 194, 255) !important;
+  text-shadow: 0 0 12px rgba(89, 194, 255, 0.4);
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
-/* H2 dentro de artigos - Vermelho bordô médio */
+/* H2 dentro de artigos - Azul claro */
 .dark article h2,
 .dark .prose h2 {
-  color: rgb(239, 154, 154) !important;
-  text-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+  color: rgb(130, 194, 255) !important;
+  text-shadow: 0 0 8px rgba(89, 194, 255, 0.3);
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-/* H3 dentro de artigos - DOURADO BUJINKAN */
+/* H3 dentro de artigos - DOURADO AYU */
 .dark article h3,
 .dark .prose h3 {
-  color: rgb(250, 204, 92) !important;
-  text-shadow: 0 0 6px rgba(218, 165, 32, 0.3);
+  color: rgb(255, 180, 84) !important;
+  text-shadow: 0 0 6px rgba(255, 180, 84, 0.3);
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
@@ -239,7 +239,7 @@
 .dark .prose h4,
 .dark .prose h5,
 .dark .prose h6 {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
   text-shadow: none;
 }
 
@@ -248,36 +248,36 @@
 .dark article li,
 .dark .prose p,
 .dark .prose li {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
   line-height: 1.8;
   margin-bottom: 1rem;
 }
 
 /* ===== CÓDIGO E ELEMENTOS TÉCNICOS ===== */
 
-/* Código inline - Dourado claro */
+/* Código inline - Verde lima */
 .dark code,
 .dark :not(pre) > code,
 .dark .prose code {
-  color: rgb(252, 225, 150) !important;
-  background-color: rgba(218, 165, 32, 0.12) !important;
+  color: rgb(194, 217, 76) !important;
+  background-color: rgba(194, 217, 76, 0.12) !important;
   padding: 2px 6px;
   border-radius: 4px;
-  border: 1px solid rgba(218, 165, 32, 0.3);
+  border: 1px solid rgba(194, 217, 76, 0.25);
   font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
   font-size: 0.9em;
 }
 
-/* Blocos de código - Fundo ORIGINAL com borda vermelha bordô */
+/* Blocos de código - Fundo Ayu com borda azul */
 .dark pre {
-  background-color: rgb(28, 28, 30) !important;
-  border: 1px solid rgb(70, 70, 72) !important;
-  border-left: 4px solid rgb(139, 0, 0) !important;
-  color: rgb(220, 220, 222) !important;
+  background-color: rgb(25, 24, 26) !important;
+  border: 1px solid rgb(61, 66, 77) !important;
+  border-left: 4px solid rgb(89, 194, 255) !important;
+  color: rgb(199, 199, 199) !important;
   padding: 18px;
   border-radius: 8px;
   overflow-x: auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   margin: 1.5rem 0;
 }
 
@@ -286,17 +286,17 @@
   background-color: transparent !important;
   border: none !important;
   padding: 0 !important;
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
 /* Texto dentro de pre */
 .dark pre * {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
 /* Spans coloridos inline */
 .dark span[style*="color"] {
-  filter: brightness(1.5) !important;
+  filter: brightness(1.3) !important;
 }
 
 /* Strong/Bold - DOURADO para destaque */
@@ -304,7 +304,7 @@
 .dark article b,
 .dark .prose strong,
 .dark .prose b {
-  color: rgb(250, 204, 92) !important;
+  color: rgb(255, 180, 84) !important;
   font-weight: 700;
 }
 
@@ -313,28 +313,28 @@
 .dark article i,
 .dark .prose em,
 .dark .prose i {
-  color: rgb(200, 203, 208) !important;
+  color: rgb(170, 175, 182) !important;
   font-style: italic;
 }
 
 /* ===== TABELAS ===== */
 
-/* Tabela - Estrutura base ORIGINAL */
+/* Tabela - Estrutura base Ayu */
 .dark table {
   border-collapse: collapse;
-  border: 1px solid rgb(70, 70, 72) !important;
-  background-color: rgba(28, 28, 30, 0.6) !important;
+  border: 1px solid rgb(61, 66, 77) !important;
+  background-color: rgba(25, 24, 26, 0.6) !important;
   width: 100%;
   margin: 1.5rem 0;
   border-radius: 6px;
   overflow: hidden;
 }
 
-/* Cabeçalho da tabela - Gradiente Bujinkan */
+/* Cabeçalho da tabela - Gradiente Ayu */
 .dark th {
-  background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(218, 165, 32, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(89, 194, 255, 0.15), rgba(194, 217, 76, 0.08)) !important;
   color: rgb(245, 245, 247) !important;
-  border-bottom: 2px solid rgb(139, 0, 0) !important;
+  border-bottom: 2px solid rgb(89, 194, 255) !important;
   padding: 12px 16px;
   font-weight: 700;
   text-align: left;
@@ -342,25 +342,25 @@
 
 /* Células da tabela */
 .dark td {
-  border: 1px solid rgb(70, 70, 72) !important;
-  color: rgb(220, 220, 222) !important;
+  border: 1px solid rgb(61, 66, 77) !important;
+  color: rgb(199, 199, 199) !important;
   padding: 10px 16px;
 }
 
 /* Linhas alternadas */
 .dark tbody tr:nth-child(even) {
-  background-color: rgba(45, 45, 47, 0.3);
+  background-color: rgba(30, 42, 48, 0.3);
 }
 
 /* Hover nas linhas */
 .dark tbody tr:hover {
-  background-color: rgba(139, 0, 0, 0.08);
+  background-color: rgba(89, 194, 255, 0.08);
   transition: background-color 0.2s ease;
 }
 
 /* Texto em células */
 .dark table * {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
 /* ===== LISTAS ===== */
@@ -368,20 +368,20 @@
 /* Itens de lista */
 .dark ul li,
 .dark ol li {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
   margin: 6px 0;
   line-height: 1.7;
 }
 
-/* Marcadores - vermelho bordô */
+/* Marcadores - azul Ayu */
 .dark ul li::marker {
-  color: rgb(139, 0, 0);
+  color: rgb(89, 194, 255);
   font-size: 1.1em;
 }
 
-/* Numeração - vermelho bordô */
+/* Numeração - azul Ayu */
 .dark ol li::marker {
-  color: rgb(139, 0, 0);
+  color: rgb(89, 194, 255);
   font-weight: bold;
 }
 
@@ -395,25 +395,25 @@
 
 /* ===== CITAÇÕES (BLOCKQUOTE) ===== */
 
-/* Blockquote - Borda dourada */
+/* Blockquote - Borda verde lima */
 .dark blockquote {
-  border-left: 4px solid rgb(218, 165, 32);
-  background: linear-gradient(90deg, rgba(139, 0, 0, 0.08), rgba(218, 165, 32, 0.05));
-  color: rgb(220, 220, 222) !important;
+  border-left: 4px solid rgb(194, 217, 76);
+  background: linear-gradient(90deg, rgba(89, 194, 255, 0.08), rgba(194, 217, 76, 0.05));
+  color: rgb(199, 199, 199) !important;
   padding: 16px 20px;
   margin: 1.5rem 0;
   font-style: italic;
   border-radius: 0 6px 6px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .dark blockquote p {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
   margin: 0.5rem 0;
 }
 
 .dark blockquote cite {
-  color: rgb(190, 190, 192) !important;
+  color: rgb(160, 160, 162) !important;
   font-size: 0.9em;
 }
 
@@ -425,9 +425,9 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgb(139, 0, 0),
-    rgb(218, 165, 32),
-    rgb(139, 0, 0),
+    rgb(89, 194, 255),
+    rgb(194, 217, 76),
+    rgb(89, 194, 255),
     transparent
   );
   margin: 2rem 0;
@@ -437,24 +437,24 @@
 
 .dark article a,
 .dark .prose a {
-  color: rgb(239, 154, 154) !important;
+  color: rgb(130, 194, 255) !important;
   text-decoration: underline;
-  text-decoration-color: rgba(139, 0, 0, 0.4);
+  text-decoration-color: rgba(89, 194, 255, 0.4);
   transition: all 0.2s ease;
 }
 
 .dark article a:hover,
 .dark .prose a:hover {
-  color: rgb(220, 100, 100) !important;
-  text-decoration-color: rgba(139, 0, 0, 0.7);
-  text-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+  color: rgb(89, 194, 255) !important;
+  text-decoration-color: rgba(89, 194, 255, 0.7);
+  text-shadow: 0 0 8px rgba(89, 194, 255, 0.4);
 }
 
 /* ===== SYNTAX HIGHLIGHTING ===== */
 
 .dark .highlight,
 .dark .chroma {
-  background: rgb(28, 28, 30) !important;
+  background: rgb(25, 24, 26) !important;
   border-radius: 8px;
 }
 
@@ -465,48 +465,48 @@
 .dark .language-javascript,
 .dark .language-html,
 .dark .language-css {
-  background: rgb(28, 28, 30) !important;
-  color: rgb(220, 220, 222) !important;
+  background: rgb(25, 24, 26) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
-/* Keywords - Vermelho bordô */
+/* Keywords - Laranja Ayu */
 .dark .hljs-keyword,
 .dark .hljs-selector-tag,
 .dark .hljs-built_in,
 .dark .hljs-name {
-  color: rgb(220, 100, 100) !important;
+  color: rgb(255, 143, 64) !important;
 }
 
-/* Strings - Dourado */
+/* Strings - Verde lima */
 .dark .hljs-string,
 .dark .hljs-attr,
 .dark .hljs-attribute {
-  color: rgb(252, 225, 150) !important;
+  color: rgb(194, 217, 76) !important;
 }
 
-/* Números - Dourado claro */
+/* Números - Laranja claro */
 .dark .hljs-number,
 .dark .hljs-literal {
-  color: rgb(250, 204, 92) !important;
+  color: rgb(255, 143, 64) !important;
 }
 
 /* Comentários */
 .dark .hljs-comment,
 .dark .hljs-quote {
-  color: rgb(130, 130, 132) !important;
+  color: rgb(115, 167, 78) !important;
   font-style: italic;
 }
 
-/* Funções - Cinza prateado */
+/* Funções - Azul Ayu */
 .dark .hljs-function,
 .dark .hljs-title {
-  color: rgb(200, 203, 208) !important;
+  color: rgb(89, 194, 255) !important;
 }
 
 /* Variáveis */
 .dark .hljs-variable,
 .dark .hljs-template-variable {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
 /* ===== OVERRIDES DE SEGURANÇA ===== */
@@ -515,13 +515,13 @@
 .dark [style*="color:#000"],
 .dark [style*="color: rgb(0, 0, 0)"],
 .dark [style*="color:black"] {
-  color: rgb(220, 220, 222) !important;
+  color: rgb(199, 199, 199) !important;
 }
 
 .dark [style*="background: white"],
 .dark [style*="background:#fff"],
 .dark [style*="background-color: white"] {
-  background-color: rgba(28, 28, 30, 0.8) !important;
+  background-color: rgba(25, 24, 26, 0.8) !important;
 }
 
 .dark article span:not([style]):not([class]),
@@ -529,47 +529,47 @@
   color: inherit !important;
 }
 
-/* ===== SCROLLBAR - Gradiente Bujinkan ===== */
+/* ===== SCROLLBAR - Gradiente Ayu ===== */
 
 .dark ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
-  background: rgb(28, 28, 30);
+  background: rgb(10, 14, 20);
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: rgb(28, 28, 30);
+  background: rgb(10, 14, 20);
   border-radius: 6px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgb(139, 0, 0), rgb(218, 165, 32));
+  background: linear-gradient(180deg, rgb(89, 194, 255), rgb(194, 217, 76));
   border-radius: 6px;
-  border: 2px solid rgb(28, 28, 30);
+  border: 2px solid rgb(10, 14, 20);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgb(220, 100, 100), rgb(250, 204, 92));
+  background: linear-gradient(180deg, rgb(130, 194, 255), rgb(174, 220, 112));
 }
 
 .dark ::-webkit-scrollbar-corner {
-  background: rgb(28, 28, 30);
+  background: rgb(10, 14, 20);
 }
 
 .dark * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(139, 0, 0) rgb(28, 28, 30);
+  scrollbar-color: rgb(89, 194, 255) rgb(10, 14, 20);
 }
 
 /* ===== SELEÇÃO DE TEXTO ===== */
 
 .dark ::selection {
-  background-color: rgba(139, 0, 0, 0.4);
+  background-color: rgba(89, 194, 255, 0.3);
   color: rgb(245, 245, 247);
 }
 
 .dark ::-moz-selection {
-  background-color: rgba(139, 0, 0, 0.4);
+  background-color: rgba(89, 194, 255, 0.3);
   color: rgb(245, 245, 247);
 }
 
