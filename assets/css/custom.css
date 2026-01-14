@@ -1,6 +1,6 @@
 :root {
   /* Neutral - Ayu Dark (preto azulado profundo) */
-  --color-neutral: 10, 14, 20;
+  --color-neutral: 10, 10, 10;
   --color-neutral-50: 245, 245, 247;
   --color-neutral-100: 220, 220, 222;
   --color-neutral-200: 190, 190, 192;
@@ -10,7 +10,7 @@
   --color-neutral-600: 70, 70, 72;
   --color-neutral-700: 45, 45, 47;
   --color-neutral-800: 25, 24, 26;   /* Fundo de código */
-  --color-neutral-900: 10, 14, 20;   /* Preto azulado */
+  --color-neutral-900: 10, 10, 10;   
 
   /* Primary - Azul Ayu (céu suave) */
   --color-primary-50: 230, 242, 255;
