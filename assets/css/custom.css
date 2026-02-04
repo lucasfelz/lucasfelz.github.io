@@ -627,23 +627,7 @@
 
 /* ===== EFEITOS ADICIONAIS NINJA ===== */
 
-/* Efeito de sombra nos cards */
-.dark article,
-.dark .card {
-  background-color: rgba(15, 15, 15, 0.8);
-  border: 1px solid rgba(60, 60, 60, 0.5);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5),
-              0 0 20px rgba(220, 38, 38, 0.1);
-  transition: all 0.3s ease;
-}
-
-.dark article:hover,
-.dark .card:hover {
-  border-color: rgba(220, 38, 38, 0.4);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6),
-              0 0 30px rgba(220, 38, 38, 0.2);
-  transform: translateY(-2px);
-}
+/* Efeito de sombra nos cards - REMOVIDO para manter design limpo */
 
 /* ===== RESPONSIVIDADE ===== */
 
