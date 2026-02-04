@@ -629,6 +629,40 @@
 
 /* Efeito de sombra nos cards - REMOVIDO para manter design limpo */
 
+/* ===== REMOÇÃO DE BORDAS E FUNDOS ===== */
+
+/* Remove qualquer borda/fundo de containers de artigo */
+.dark article,
+.dark .article,
+.dark .post,
+.dark .content,
+.dark .prose,
+.dark main,
+.dark .main-content,
+.dark .post-content,
+.dark .article-content,
+.dark .writeup,
+.dark .container,
+.dark .wrapper,
+.dark section article,
+.dark .entry-content {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove bordas de divs dentro de artigos */
+.dark article > div,
+.dark .prose > div,
+.dark .post > div,
+.dark .content > div {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 
 @media (max-width: 768px) {
