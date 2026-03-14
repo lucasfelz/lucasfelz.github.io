@@ -22,12 +22,12 @@ robots = ""
   showScrollToTop = true
 
 [homepage]
-  layout = "page"
+  layout = "profile"
   homepageImage = "img/logo.png"
-  showRecent = false
+  showRecent = true
+  showRecentItems = 10
   showMoreLink = false
   cardView = true
-  cardViewScreenWidth = false
 
 [article]
   showDate = true
