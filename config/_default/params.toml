@@ -1,20 +1,18 @@
 colorScheme = "custom"
 defaultAppearance = "dark"
 autoSwitchAppearance = true
-
 enableSearch = true
 enableCodeCopy = true
 enableImageOptimization = true
 enableQuicklink = true
-
-mainSections = ["writeups", "posts"]
+mainSections = ["hackthebox", "portswigger", "juiceshop", "vulnhub"]
 robots = ""
 
 [header]
   layout = "basic"
   logo = "img/logo.png"
-  logoDark = "img/logo.png"  # Logo para modo escuro
-  logoWidth = 80  # Largura em pixels
+  logoDark = "img/logo.png"
+  logoWidth = 80
   logoHeight = 80
 
 [footer]
@@ -24,12 +22,10 @@ robots = ""
   showScrollToTop = true
 
 [homepage]
-  layout = "profile"
+  layout = "page"
   homepageImage = "img/logo.png"
-  showRecent = true
-  showRecentItems = 10
-  showMoreLink = true
-  showMoreLinkDest = "/writeups"
+  showRecent = false
+  showMoreLink = false
   cardView = true
   cardViewScreenWidth = false
 
@@ -46,7 +42,7 @@ robots = ""
   showTaxonomies = true
   showWordCount = true
   showComments = false
-  sharingLinks = ["facebook", "twitter", "reddit", "pinterest", "linkedin", "email"]
+  sharingLinks = ["linkedin", "reddit", "twitter", "email"]
 
 [list]
   showBreadcrumbs = true
