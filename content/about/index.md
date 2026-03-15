@@ -1,6 +1,9 @@
 ---
 title: "Sobre"
 description: "Quem é Lucas Felz"
+type: "page"
+_build:
+  list: never
 ---
 
 ## whoami
