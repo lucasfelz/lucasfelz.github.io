@@ -1,43 +1,53 @@
 ---
-title: "Sobre Mim"
-date: 2025-12-20
-showTableOfContents: false
+title: "Sobre"
+description: "Quem é Lucas Felz"
 ---
 
-## 👋 Olá!
+## whoami
 
-Bem-vindo ao meu blog de write-ups e segurança da informação!
+Atualmente Suporte TI e Penetration Tester em formação.
 
-Sou **Lucas Felz**, um entusiasta de cybersecurity apaixonado por CTFs, pentesting e hacking ético.
-
-### 🎯 Foco
-
-- **CTF Write-ups**: HackTheBox, TryHackMe, CTFtime
-- **Web Security**: OWASP Top 10, bug bounty
-- **Binary Exploitation**: Buffer overflow, ROP chains
-- **Reverse Engineering**: Análise de malware e engenharia reversa
-- **Forensics**: Análise forense digital
-
-### 🛠️ Ferramentas Favoritas
-
-- **Reconhecimento**: nmap, masscan, rustscan
-- **Web**: Burp Suite, OWASP ZAP, sqlmap
-- **Exploração**: Metasploit, exploit-db
-- **Post-Exploitation**: LinPEAS, WinPEAS, PowerSploit
-- **Reversing**: Ghidra, IDA Pro, radare2
-
-### 🏆 Conquistas
-
-- HackTheBox: Rank Pro Hacker
-- TryHackMe: Top 5%
-- CTFs participados: 50+
-- Vulnerabilidades reportadas: 10+
-
-### 📫 Contato
-
-- **Email**: lucasfelz@gmail.com
-- **GitHub**: [@lucasfelz](https://github.com/lucasfelz)
+Venho de um caminho pouco convencional — sou psicólogo clínico (CRP 16ª/7874) que migrou para tecnologia, passou por suporte de infraestrutura hospitalar e agora está construindo uma carreira em segurança ofensiva. Esse background me deu algo que a maioria dos técnicos não tem: entender pessoas, comunicar risco e pensar como o adversário pensa.
+Cada vez mais apaixonado por Cybersecurity - Offensive Security e Application Security - especificamente.
 
 ---
 
-*"Hack the planet, but do it ethically!"* 🔐
+## Certificações
+
+- eJPT — eLearnSecurity Junior Penetration Tester
+- CRTA — Certified Red Team Analyst
+- WEB-RTA — Web Red Team Analyst
+- CNSP — Certified Network Security Practitioner
+- Google Cybersecurity Professional Certificate
+- CompTIA PenTest+ *(em andamento)*
+
+---
+
+## Formação
+
+- Bacharelado em Sistemas de Informação — FAESA *(em andamento)*
+- Bacharelado em Psicologia — CRP 16ª/7874
+
+---
+
+## Homelab
+
+Proxmox VE rodando pfSense, VLANs segmentadas, Cisco SF300-24, Wazuh SIEM/XDR e um ambiente GOAD (Game of Active Directory) para prática de Active Directory attacks.
+
+Documentado publicamente em [github.com/lucasfelz/goad-homelab](https://github.com/lucasfelz/goad-homelab).
+
+---
+
+## Stack
+
+- **OS:** Arch Linux + Hyprland (daily driver), Kali Linux (lab)
+- **Plataformas:** HackTheBox, TryHackMe, PortSwigger Web Academy
+- **Dev:** Python, Bash, um pouco de Java e PowerShell
+
+---
+
+## Contato
+
+- GitHub: [github.com/lucasfelz](https://github.com/lucasfelz)
+- LinkedIn: [linkedin.com/in/lucas-felz](https://linkedin.com/in/lucas-felz)
+- Blog: [cyberkyusho.com](https://cyberkyusho.com)
