@@ -1,0 +1,29 @@
+[[main]]
+  name = "HackTheBox"
+  pageRef = "hackthebox"
+  weight = 10
+
+[[main]]
+  name = "PortSwigger"
+  pageRef = "portswigger"
+  weight = 20
+
+[[main]]
+  name = "Juice Shop"
+  pageRef = "juiceshop"
+  weight = 30
+
+[[main]]
+  name = "VulnHub"
+  pageRef = "vulnhub"
+  weight = 40
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 50
+
+[[footer]]
+  name = "Contact"
+  pageRef = "about"
+  weight = 10

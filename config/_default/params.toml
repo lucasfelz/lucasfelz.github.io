@@ -24,8 +24,7 @@ robots = ""
 [homepage]
   layout = "profile"
   homepageImage = "img/logo.png"
-  showRecent = true
-  showRecentItems = 10
+  showRecent = false
   showMoreLink = false
   cardView = true
 
@@ -48,8 +47,9 @@ robots = ""
   showBreadcrumbs = true
   showSummary = true
   showTableOfContents = false
-  groupByYear = true
+  groupByYear = false
   cardView = true
+  showDate = false
 
 [sitemap]
   excludedKinds = ["taxonomy", "term"]
