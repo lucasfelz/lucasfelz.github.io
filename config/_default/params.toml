@@ -10,8 +10,8 @@ robots = ""
 
 [header]
   layout = "basic"
-  logo = "img/logo.png"
-  logoDark = "img/logo.png"
+  logo = "logo.jpeg"
+  logoDark = "logo.jpeg"
   logoWidth = 80
   logoHeight = 80
 
@@ -23,7 +23,7 @@ robots = ""
 
 [homepage]
   layout = "profile"
-  homepageImage = "img/logo.png"
+  homepageImage = "logo.jpeg"
   showRecent = false
   showMoreLink = false
   cardView = true
