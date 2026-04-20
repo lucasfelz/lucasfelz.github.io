@@ -24,8 +24,10 @@ robots = ""
 [homepage]
   layout = "profile"
   homepageImage = "logo.jpeg"
-  showRecent = false
-  showMoreLink = false
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
+  showMoreLinkDest = "/hackthebox"
   cardView = true
 
 [article]

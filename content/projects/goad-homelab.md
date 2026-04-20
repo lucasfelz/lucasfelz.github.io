@@ -3,7 +3,7 @@ title: "GOAD Homelab"
 description: "Lab ofensivo de Active Directory — Proxmox + pfSense + Cisco SF300. Not a tutorial lab. A working offensive infrastructure."
 date: 2026-01-01
 tags: ["homelab", "active-directory", "proxmox", "pfsense", "kali", "pentest", "vlan"]
-_build:
+build:
   list: never
   render: always
 ---

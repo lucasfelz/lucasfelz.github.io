@@ -5,7 +5,7 @@ cascade:
   showDate: false
   showAuthor: false
   showReadingTime: false
-  _build:
+  build:
     list: never
     render: always
 ---
