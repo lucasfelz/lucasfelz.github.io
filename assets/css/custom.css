@@ -1,637 +1,468 @@
 :root {
-  /* Neutral - Preto profundo ninja */
-  --color-neutral: 0, 0, 0;
-  --color-neutral-50: 245, 245, 245;
-  --color-neutral-100: 220, 220, 220;
-  --color-neutral-200: 180, 180, 180;
-  --color-neutral-300: 150, 150, 150;
-  --color-neutral-400: 120, 120, 120;
-  --color-neutral-500: 90, 90, 90;
-  --color-neutral-600: 60, 60, 60;
-  --color-neutral-700: 35, 35, 35;
-  --color-neutral-800: 18, 18, 18;   /* Fundo de código */
-  --color-neutral-900: 0, 0, 0;   
+  /* ── BASE ABSOLUTA ── */
+  --c-void:        #050505;   /* fundo mais profundo       */
+  --c-abyss:       #080808;   /* body background           */
+  --c-obsidian:    #0d0d0d;   /* superfície de card        */
+  --c-carbon:      #111111;   /* card elevado, hover sutil */
+  --c-graphite-1:  #181818;   /* bordas principais         */
+  --c-graphite-2:  #222222;   /* bordas hover              */
+  --c-graphite-3:  #303030;   /* separadores visíveis      */
+  --c-steel-1:     #484848;   /* labels e ícones           */
+  --c-steel-2:     #686868;   /* texto terciário           */
+  --c-steel-3:     #8a8a8a;   /* texto secundário          */
+  --c-silver-1:    #aaaaaa;   /* texto de suporte          */
+  --c-silver-2:    #c8c8c8;   /* texto de corpo principal  */
+  --c-silver-3:    #d4d4d4;   /* títulos de card           */
+  --c-lunar:       #e2e2e2;   /* títulos e headings        */
+  --c-frost:       #ebebeb;   /* h1 — máxima clareza       */
 
-  /* Primary - Vermelho sangue (kamon) */
-  --color-primary-50: 255, 240, 240;
-  --color-primary-100: 255, 220, 220;
-  --color-primary-200: 255, 180, 180;
-  --color-primary-300: 255, 120, 120;
-  --color-primary-400: 220, 38, 38;
-  --color-primary-500: 220, 38, 38;      /* Vermelho principal */
-  --color-primary-600: 185, 28, 28;
-  --color-primary-700: 153, 27, 27;
-  --color-primary-800: 127, 29, 29;
-  --color-primary-900: 100, 25, 25;
-
-  /* Gold - Amarelo imperial (ouro samurai) */
-  --color-gold-50: 255, 252, 240;
-  --color-gold-100: 254, 249, 220;
-  --color-gold-200: 254, 240, 180;
-  --color-gold-300: 253, 224, 120;
-  --color-gold-400: 234, 179, 8;
-  --color-gold-500: 234, 179, 8;      /* Amarelo dourado */
-  --color-gold-600: 202, 138, 4;
-  --color-gold-700: 161, 98, 7;
-  --color-gold-800: 133, 77, 14;
-  --color-gold-900: 113, 63, 18;
-
-  /* Secondary - Cinza aço (lâmina) */
-  --color-secondary-50: 248, 248, 248;
-  --color-secondary-100: 240, 240, 240;
-  --color-secondary-200: 220, 220, 220;
-  --color-secondary-300: 180, 180, 180;
-  --color-secondary-400: 140, 140, 140;
-  --color-secondary-500: 140, 140, 140;
-  --color-secondary-600: 110, 110, 110;
-  --color-secondary-700: 85, 85, 85;
-  --color-secondary-800: 60, 60, 60;
-  --color-secondary-900: 40, 40, 40;
+  /* Acento frio único (muito discreto) */
+  --c-accent:      #9090a0;   /* prata levemente azulada   */
+  --c-accent-dim:  #404050;   /* acento em bordas sutis    */
 }
 
-/* ===== EFEITOS BUJINKAN ===== */
+/* ══════════════════════════════════════
+   VARIÁVEIS SEMÂNTICAS
+══════════════════════════════════════ */
 
-.glow-red {
-  text-shadow: 0 0 10px rgba(220, 38, 38, 0.7),
-               0 0 20px rgba(220, 38, 38, 0.5),
-               0 0 30px rgba(220, 38, 38, 0.3);
+.dark {
+  background-color: var(--c-abyss);
+  color: var(--c-silver-2);
 }
 
-.glow-gold {
-  text-shadow: 0 0 10px rgba(234, 179, 8, 0.6),
-               0 0 20px rgba(234, 179, 8, 0.4);
-}
+/* ══════════════════════════════════════
+   TIPOGRAFIA — HIERARQUIA LUNAR
+══════════════════════════════════════ */
 
-.border-glow-red {
-  border: 2px solid rgb(220, 38, 38);
-  box-shadow: 0 0 12px rgba(220, 38, 38, 0.6),
-              inset 0 0 10px rgba(220, 38, 38, 0.2);
-}
-
-.border-glow-gold {
-  border: 1px solid rgb(234, 179, 8);
-  box-shadow: 0 0 10px rgba(234, 179, 8, 0.5),
-              inset 0 0 8px rgba(234, 179, 8, 0.2);
-}
-
-/* ===== PÁGINA INICIAL - ELEMENTOS PRINCIPAIS ===== */
-
-/* Título principal (Lucas Felz) - VERMELHO INTENSO */
 .dark h1,
 .dark h1.text-4xl {
-  color: rgb(220, 38, 38) !important;
-  text-shadow: 0 0 15px rgba(220, 38, 38, 0.6),
-               0 2px 4px rgba(0, 0, 0, 0.8);
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-/* Nome do autor - VERMELHO INTENSO */
-.dark .author-name {
-  color: rgb(220, 38, 38) !important;
-  text-shadow: 0 0 12px rgba(220, 38, 38, 0.5),
-               0 2px 4px rgba(0, 0, 0, 0.7);
-  font-weight: 800;
-}
-
-/* Subtítulo (Security Researcher & CTF Player) - DOURADO */
-.dark h2.text-2xl {
-  color: rgb(234, 179, 8) !important;
-  text-shadow: 0 0 8px rgba(234, 179, 8, 0.4),
-               0 1px 3px rgba(0, 0, 0, 0.6);
-  font-weight: 600;
-}
-
-/* Seção "Recent" e outros H2 - Vermelho suave */
-.dark h2 {
-  color: rgb(239, 68, 68) !important;
-  text-shadow: 0 0 6px rgba(220, 38, 38, 0.3);
-  font-weight: 700;
-  border-bottom: 2px solid rgba(220, 38, 38, 0.3);
-  padding-bottom: 8px;
-}
-
-/* H3 genéricos - Cinza claro */
-.dark h3 {
-  color: rgb(200, 200, 200) !important;
+  color: var(--c-frost) !important;
+  font-weight: 300;
+  letter-spacing: -.02em;
   text-shadow: none;
 }
 
-/* Títulos dos cards - Vermelho claro com hover dourado */
+.dark .author-name {
+  color: var(--c-frost) !important;
+  font-weight: 300;
+  letter-spacing: -.01em;
+  text-shadow: none;
+}
+
+.dark h2.text-2xl {
+  color: var(--c-steel-2) !important;
+  font-weight: 400;
+  letter-spacing: .04em;
+  text-shadow: none;
+}
+
+.dark h2 {
+  color: var(--c-lunar) !important;
+  font-weight: 400;
+  letter-spacing: .01em;
+  text-shadow: none;
+  border-bottom: 1px solid var(--c-graphite-1);
+  padding-bottom: 8px;
+}
+
+.dark h3 {
+  color: var(--c-silver-3) !important;
+  font-weight: 500;
+  text-shadow: none;
+}
+
 .dark .article-title,
 .dark a h3 {
-  color: rgb(252, 165, 165) !important;
-  text-shadow: 0 0 4px rgba(220, 38, 38, 0.2);
-  transition: all 0.3s ease;
-  font-weight: 700;
+  color: var(--c-silver-3) !important;
+  font-weight: 500;
+  letter-spacing: .005em;
+  text-shadow: none;
+  transition: color .35s ease;
 }
 
-/* Hover nos títulos dos cards - DOURADO */
 .dark .article-title:hover,
 .dark a:hover h3 {
-  color: rgb(234, 179, 8) !important;
-  text-shadow: 0 0 15px rgba(234, 179, 8, 0.6);
-  transform: translateY(-2px);
+  color: var(--c-frost) !important;
+  text-shadow: none;
+  transform: translateY(-1px);
 }
 
-/* Metadados - Cinza médio */
 .dark .article-meta,
 .dark .meta-info,
 .dark time,
 .dark article time,
 .dark .reading-time {
-  color: rgb(120, 120, 120) !important;
+  color: var(--c-steel-1) !important;
+  font-size: .85rem;
+  letter-spacing: .03em;
   text-shadow: none;
-  font-size: 0.9rem;
 }
 
-/* Tags - Vermelho escuro com borda */
+/* ══════════════════════════════════════
+   LINKS
+══════════════════════════════════════ */
+
+.dark a:not(.article-link) {
+  color: var(--c-silver-1) !important;
+  text-decoration: none;
+  transition: color .35s ease;
+}
+
+.dark a:hover {
+  color: var(--c-frost) !important;
+  text-shadow: none;
+}
+
+.dark article a,
+.dark .prose a {
+  color: var(--c-silver-1) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--c-graphite-2);
+  text-underline-offset: 3px;
+  font-weight: 400;
+  transition: all .35s ease;
+}
+
+.dark article a:hover,
+.dark .prose a:hover {
+  color: var(--c-frost) !important;
+  text-decoration-color: var(--c-steel-2);
+  text-shadow: none;
+}
+
+/* ══════════════════════════════════════
+   TAGS / BADGES
+══════════════════════════════════════ */
+
 .dark .tag,
 .dark .badge,
 .dark .article-tags a {
-  background-color: rgba(220, 38, 38, 0.15) !important;
-  color: rgb(252, 165, 165) !important;
-  border: 1px solid rgba(220, 38, 38, 0.4);
-  padding: 4px 12px;
-  border-radius: 3px;
+  background-color: transparent !important;
+  color: var(--c-steel-1) !important;
+  border: 1px solid var(--c-graphite-1);
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: .72rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all .3s ease;
   text-decoration: none;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
-  font-weight: 600;
 }
 
 .dark .tag:hover,
 .dark .badge:hover,
 .dark .article-tags a:hover {
-  background-color: rgba(220, 38, 38, 0.3) !important;
-  border-color: rgba(220, 38, 38, 0.6);
-  color: rgb(234, 179, 8) !important;
+  border-color: var(--c-graphite-3) !important;
+  color: var(--c-silver-2) !important;
+  background-color: transparent !important;
 }
 
-/* Links gerais - Vermelho suave */
-.dark a:not(.article-link) {
-  color: rgb(252, 165, 165) !important;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
+/* ══════════════════════════════════════
+   BOTÕES
+══════════════════════════════════════ */
 
-.dark a:hover {
-  color: rgb(234, 179, 8) !important;
-  text-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
-}
-
-/* Botão "Show More" - Gradiente Vermelho/Dourado */
 .dark button,
 .dark .button {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(234, 179, 8, 0.1));
-  border: 2px solid rgb(220, 38, 38);
-  color: rgb(245, 245, 245) !important;
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4),
-              0 4px 6px rgba(0, 0, 0, 0.5);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  padding: 12px 28px;
-  border-radius: 4px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: transparent;
+  border: 1px solid var(--c-graphite-2);
+  color: var(--c-silver-1) !important;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 10px 26px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: .75rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all .4s ease;
 }
 
 .dark button:hover,
 .dark .button:hover {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.35), rgba(234, 179, 8, 0.2));
-  border-color: rgb(234, 179, 8);
-  box-shadow: 0 0 25px rgba(220, 38, 38, 0.6),
-              0 0 20px rgba(234, 179, 8, 0.4),
-              0 6px 12px rgba(0, 0, 0, 0.6);
-  transform: translateY(-3px);
-  color: rgb(255, 255, 255) !important;
+  border-color: var(--c-graphite-3);
+  color: var(--c-frost) !important;
+  transform: translateY(-1px);
+  box-shadow: none;
 }
 
-/* Parágrafos gerais na home */
+/* ══════════════════════════════════════
+   PARÁGRAFOS E CORPO
+══════════════════════════════════════ */
+
 .dark p:not(article p):not(.prose p) {
-  color: rgb(200, 200, 200) !important;
+  color: var(--c-silver-2) !important;
 }
 
-/* ===== WRITEUPS E ARTIGOS - HIERARQUIA VISUAL ===== */
+.dark article p,
+.dark article li,
+.dark .prose p,
+.dark .prose li {
+  color: var(--c-silver-2) !important;
+  line-height: 1.85;
+}
 
-/* H1 dentro de artigos - VERMELHO FORTE */
+.dark article strong,
+.dark article b,
+.dark .prose strong,
+.dark .prose b {
+  color: var(--c-silver-3) !important;
+  font-weight: 500;
+  text-shadow: none;
+}
+
+.dark article em,
+.dark article i,
+.dark .prose em,
+.dark .prose i {
+  color: var(--c-steel-3) !important;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════
+   HEADINGS EM ARTIGOS
+══════════════════════════════════════ */
+
 .dark article h1,
 .dark .prose h1 {
-  color: rgb(220, 38, 38) !important;
-  text-shadow: 0 0 15px rgba(220, 38, 38, 0.5),
-               0 2px 4px rgba(0, 0, 0, 0.8);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  border-bottom: 3px solid rgba(220, 38, 38, 0.4);
+  color: var(--c-frost) !important;
+  font-weight: 300;
+  letter-spacing: -.02em;
+  text-shadow: none;
+  border-bottom: 1px solid var(--c-graphite-1);
   padding-bottom: 12px;
+  margin-bottom: 1.5rem;
 }
 
-/* H2 dentro de artigos - Vermelho médio */
 .dark article h2,
 .dark .prose h2 {
-  color: rgb(239, 68, 68) !important;
-  text-shadow: 0 0 10px rgba(220, 38, 38, 0.4),
-               0 1px 3px rgba(0, 0, 0, 0.7);
-  font-weight: 700;
+  color: var(--c-lunar) !important;
+  font-weight: 400;
+  text-shadow: none;
+  border-left: 2px solid var(--c-graphite-2);
+  padding-left: 16px;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  border-left: 4px solid rgb(220, 38, 38);
-  padding-left: 16px;
 }
 
-/* H3 dentro de artigos - DOURADO */
 .dark article h3,
 .dark .prose h3 {
-  color: rgb(234, 179, 8) !important;
-  text-shadow: 0 0 8px rgba(234, 179, 8, 0.4),
-               0 1px 2px rgba(0, 0, 0, 0.6);
-  font-weight: 700;
+  color: var(--c-silver-3) !important;
+  font-weight: 500;
+  text-shadow: none;
   margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: .75rem;
 }
 
-/* H4, H5, H6 - Cinza claro */
 .dark article h4,
 .dark article h5,
 .dark article h6,
 .dark .prose h4,
 .dark .prose h5,
 .dark .prose h6 {
-  color: rgb(200, 200, 200) !important;
+  color: var(--c-steel-3) !important;
+  font-weight: 400;
   text-shadow: none;
-  font-weight: 600;
 }
 
-/* Textos do corpo - Branco acinzentado legível */
-.dark article p,
-.dark article li,
-.dark .prose p,
-.dark .prose li {
-  color: rgb(210, 210, 210) !important;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
+/* ══════════════════════════════════════
+   CÓDIGO
+══════════════════════════════════════ */
 
-/* ===== CÓDIGO E ELEMENTOS TÉCNICOS ===== */
-
-/* Código inline - Dourado */
 .dark code,
 .dark :not(pre) > code,
 .dark .prose code {
-  color: rgb(234, 179, 8) !important;
-  background-color: rgba(234, 179, 8, 0.15) !important;
-  padding: 3px 8px;
-  border-radius: 3px;
-  border: 1px solid rgba(234, 179, 8, 0.3);
-  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
-  font-size: 0.9em;
-  font-weight: 600;
+  color: var(--c-silver-1) !important;
+  background-color: var(--c-obsidian) !important;
+  border: 1px solid var(--c-graphite-1);
+  padding: 2px 7px;
+  border-radius: 2px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: .88em;
+  font-weight: 400;
 }
 
-/* Blocos de código - Fundo preto com borda vermelha */
 .dark pre {
-  background-color: rgb(10, 10, 10) !important;
-  border: 1px solid rgb(40, 40, 40) !important;
-  border-left: 4px solid rgb(220, 38, 38) !important;
-  color: rgb(210, 210, 210) !important;
-  padding: 20px;
-  border-radius: 6px;
+  background-color: #060606 !important;
+  border: none !important;
+  border-left: 2px solid var(--c-graphite-1) !important;
+  color: var(--c-steel-3) !important;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 3px 3px 0;
   overflow-x: auto;
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.2),
-              0 4px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: none;
   margin: 1.5rem 0;
 }
 
-/* Código dentro de pre */
 .dark pre code {
   background-color: transparent !important;
   border: none !important;
   padding: 0 !important;
-  color: rgb(210, 210, 210) !important;
+  color: var(--c-steel-3) !important;
 }
 
-/* Texto dentro de pre */
 .dark pre * {
-  color: rgb(210, 210, 210) !important;
+  color: var(--c-steel-3) !important;
 }
 
-/* Spans coloridos inline */
-.dark span[style*="color"] {
-  filter: brightness(1.2) !important;
-}
+/* ══════════════════════════════════════
+   SYNTAX HIGHLIGHTING (monochromatic)
+══════════════════════════════════════ */
 
-/* Strong/Bold - VERMELHO para destaque forte */
-.dark article strong,
-.dark article b,
-.dark .prose strong,
-.dark .prose b {
-  color: rgb(239, 68, 68) !important;
-  font-weight: 800;
-  text-shadow: 0 0 5px rgba(220, 38, 38, 0.3);
-}
-
-/* Itálico/Ênfase - Cinza prateado */
-.dark article em,
-.dark article i,
-.dark .prose em,
-.dark .prose i {
-  color: rgb(180, 180, 180) !important;
-  font-style: italic;
-}
-
-/* ===== TABELAS ===== */
-
-/* Tabela - Estrutura base ninja */
-.dark table {
-  border-collapse: collapse;
-  border: 2px solid rgb(60, 60, 60) !important;
-  background-color: rgba(10, 10, 10, 0.8) !important;
-  width: 100%;
-  margin: 1.5rem 0;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-}
-
-/* Cabeçalho da tabela - Gradiente Vermelho/Preto */
-.dark th {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(0, 0, 0, 0.8)) !important;
-  color: rgb(245, 245, 245) !important;
-  border-bottom: 3px solid rgb(220, 38, 38) !important;
-  padding: 14px 18px;
-  font-weight: 800;
-  text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.9em;
-}
-
-/* Células da tabela */
-.dark td {
-  border: 1px solid rgb(50, 50, 50) !important;
-  color: rgb(200, 200, 200) !important;
-  padding: 12px 18px;
-}
-
-/* Linhas alternadas */
-.dark tbody tr:nth-child(even) {
-  background-color: rgba(20, 20, 20, 0.6);
-}
-
-/* Hover nas linhas */
-.dark tbody tr:hover {
-  background-color: rgba(220, 38, 38, 0.1);
-  transition: background-color 0.2s ease;
-}
-
-/* Texto em células */
-.dark table * {
-  color: rgb(200, 200, 200) !important;
-}
-
-/* ===== LISTAS ===== */
-
-/* Itens de lista */
-.dark ul li,
-.dark ol li {
-  color: rgb(210, 210, 210) !important;
-  margin: 8px 0;
-  line-height: 1.8;
-}
-
-/* Marcadores - vermelho */
-.dark ul li::marker {
-  color: rgb(220, 38, 38);
-  font-size: 1.2em;
-}
-
-/* Numeração - vermelho */
-.dark ol li::marker {
-  color: rgb(220, 38, 38);
-  font-weight: bold;
-}
-
-/* Listas aninhadas */
-.dark ul ul li,
-.dark ol ol li,
-.dark ul ol li,
-.dark ol ul li {
-  margin: 5px 0;
-}
-
-/* ===== CITAÇÕES (BLOCKQUOTE) ===== */
-
-/* Blockquote - Borda vermelha, fundo escuro */
-.dark blockquote {
-  border-left: 5px solid rgb(220, 38, 38);
-  background: linear-gradient(90deg, rgba(220, 38, 38, 0.15), rgba(0, 0, 0, 0.5));
-  color: rgb(210, 210, 210) !important;
-  padding: 18px 24px;
-  margin: 1.5rem 0;
-  font-style: italic;
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.2),
-              0 4px 6px rgba(0, 0, 0, 0.5);
-}
-
-.dark blockquote p {
-  color: rgb(210, 210, 210) !important;
-  margin: 0.5rem 0;
-}
-
-.dark blockquote cite {
-  color: rgb(160, 160, 160) !important;
-  font-size: 0.9em;
-}
-
-/* ===== DIVISORES HORIZONTAIS ===== */
-
-.dark hr {
-  border: none;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgb(220, 38, 38),
-    rgb(234, 179, 8),
-    rgb(220, 38, 38),
-    transparent
-  );
-  margin: 2.5rem 0;
-  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
-}
-
-/* ===== LINKS EM ARTIGOS ===== */
-
-.dark article a,
-.dark .prose a {
-  color: rgb(252, 165, 165) !important;
-  text-decoration: underline;
-  text-decoration-color: rgba(220, 38, 38, 0.5);
-  transition: all 0.3s ease;
-  font-weight: 600;
-}
-
-.dark article a:hover,
-.dark .prose a:hover {
-  color: rgb(234, 179, 8) !important;
-  text-decoration-color: rgba(234, 179, 8, 0.8);
-  text-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
-}
-
-/* ===== SYNTAX HIGHLIGHTING ===== */
-
-.dark .highlight,
-.dark .chroma {
-  background: rgb(10, 10, 10) !important;
-  border-radius: 6px;
-}
-
-.dark .hljs,
-.dark .language-bash,
-.dark .language-shell,
-.dark .language-python,
-.dark .language-javascript,
-.dark .language-html,
-.dark .language-css {
-  background: rgb(10, 10, 10) !important;
-  color: rgb(210, 210, 210) !important;
-}
-
-/* Keywords - Vermelho */
 .dark .hljs-keyword,
 .dark .hljs-selector-tag,
 .dark .hljs-built_in,
 .dark .hljs-name {
-  color: rgb(239, 68, 68) !important;
-  font-weight: 700;
+  color: var(--c-accent) !important;
+  font-weight: 400;
 }
 
-/* Strings - Dourado */
 .dark .hljs-string,
 .dark .hljs-attr,
 .dark .hljs-attribute {
-  color: rgb(234, 179, 8) !important;
+  color: #8a8a7a !important;
 }
 
-/* Números - Dourado claro */
 .dark .hljs-number,
 .dark .hljs-literal {
-  color: rgb(250, 204, 21) !important;
+  color: var(--c-silver-1) !important;
 }
 
-/* Comentários - Cinza escuro */
 .dark .hljs-comment,
 .dark .hljs-quote {
-  color: rgb(100, 100, 100) !important;
+  color: var(--c-graphite-3) !important;
   font-style: italic;
 }
 
-/* Funções - Vermelho suave */
 .dark .hljs-function,
 .dark .hljs-title {
-  color: rgb(252, 165, 165) !important;
-  font-weight: 600;
+  color: var(--c-silver-2) !important;
+  font-weight: 400;
 }
 
-/* Variáveis - Cinza claro */
 .dark .hljs-variable,
 .dark .hljs-template-variable {
-  color: rgb(200, 200, 200) !important;
+  color: var(--c-steel-3) !important;
 }
 
-/* ===== OVERRIDES DE SEGURANÇA ===== */
+/* ══════════════════════════════════════
+   TABELAS
+══════════════════════════════════════ */
 
-.dark [style*="color: black"],
-.dark [style*="color:#000"],
-.dark [style*="color: rgb(0, 0, 0)"],
-.dark [style*="color:black"] {
-  color: rgb(210, 210, 210) !important;
+.dark table {
+  border-collapse: collapse;
+  border: 1px solid var(--c-graphite-1) !important;
+  background-color: #0a0a0a !important;
+  width: 100%;
+  margin: 1.5rem 0;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: none;
 }
 
-.dark [style*="background: white"],
-.dark [style*="background:#fff"],
-.dark [style*="background-color: white"] {
-  background-color: rgba(10, 10, 10, 0.9) !important;
+.dark th {
+  background: #0a0a0a !important;
+  color: var(--c-steel-1) !important;
+  border-bottom: 1px solid var(--c-graphite-1) !important;
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: none;
 }
 
-.dark article span:not([style]):not([class]),
-.dark .prose span:not([style]):not([class]) {
+.dark td {
+  border: none !important;
+  border-bottom: 1px solid #111 !important;
+  color: var(--c-steel-3) !important;
+  padding: 10px 16px;
+}
+
+.dark tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+
+.dark tbody tr:hover td {
+  color: var(--c-silver-2) !important;
+  background-color: #0c0c0c;
+  transition: all .25s ease;
+}
+
+.dark table * {
   color: inherit !important;
 }
 
-/* ===== SCROLLBAR - Vermelho/Dourado ===== */
+/* ══════════════════════════════════════
+   LISTAS
+══════════════════════════════════════ */
 
-.dark ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-  background: rgb(0, 0, 0);
+.dark ul li,
+.dark ol li {
+  color: var(--c-silver-2) !important;
+  margin: 6px 0;
+  line-height: 1.8;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: rgb(10, 10, 10);
+.dark ul li::marker {
+  color: var(--c-graphite-3);
+  font-size: 1em;
+}
+
+.dark ol li::marker {
+  color: var(--c-steel-1);
+  font-weight: 400;
+}
+
+/* ══════════════════════════════════════
+   BLOCKQUOTE
+══════════════════════════════════════ */
+
+.dark blockquote {
+  border-left: 2px solid var(--c-graphite-2);
+  background: #090909;
+  color: var(--c-steel-3) !important;
+  padding: 14px 20px;
+  margin: 1.5rem 0;
+  font-style: italic;
   border-radius: 0;
-  border: 1px solid rgb(40, 40, 40);
+  box-shadow: none;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgb(220, 38, 38), rgb(153, 27, 27));
-  border-radius: 0;
-  border: 2px solid rgb(0, 0, 0);
+.dark blockquote p {
+  color: var(--c-steel-3) !important;
+  margin: 0;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgb(239, 68, 68), rgb(220, 38, 38));
-  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+.dark blockquote cite {
+  color: var(--c-steel-1) !important;
+  font-size: .85em;
 }
 
-.dark ::-webkit-scrollbar-corner {
-  background: rgb(0, 0, 0);
+/* ══════════════════════════════════════
+   DIVISOR HORIZONTAL
+══════════════════════════════════════ */
+
+.dark hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--c-graphite-1) 20%,
+    var(--c-graphite-1) 80%,
+    transparent
+  );
+  margin: 2.5rem 0;
+  box-shadow: none;
 }
 
-.dark * {
-  scrollbar-width: thin;
-  scrollbar-color: rgb(220, 38, 38) rgb(0, 0, 0);
-}
+/* ══════════════════════════════════════
+   CONTAINERS (sem fundo)
+══════════════════════════════════════ */
 
-/* ===== SELEÇÃO DE TEXTO ===== */
-
-.dark ::selection {
-  background-color: rgba(220, 38, 38, 0.4);
-  color: rgb(255, 255, 255);
-  text-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
-}
-
-.dark ::-moz-selection {
-  background-color: rgba(220, 38, 38, 0.4);
-  color: rgb(255, 255, 255);
-  text-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
-}
-
-/* ===== TRANSIÇÕES E ANIMAÇÕES ===== */
-
-.dark a,
-.dark button,
-.dark .article-title,
-.dark .tag {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dark h1,
-.dark h2,
-.dark h3 {
-  animation: none !important;
-}
-
-/* ===== EFEITOS ADICIONAIS NINJA ===== */
-
-/* Efeito de sombra nos cards - REMOVIDO para manter design limpo */
-
-/* ===== REMOÇÃO DE BORDAS E FUNDOS ===== */
-
-/* Remove qualquer borda/fundo de containers de artigo */
 .dark article,
 .dark .article,
 .dark .post,
@@ -652,7 +483,6 @@
   box-shadow: none !important;
 }
 
-/* Remove bordas de divs dentro de artigos */
 .dark article > div,
 .dark .prose > div,
 .dark .post > div,
@@ -663,60 +493,17 @@
   box-shadow: none !important;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-
-@media (max-width: 768px) {
-  .dark h1 {
-    font-size: 2rem;
-  }
-  
-  .dark h2 {
-    font-size: 1.5rem;
-  }
-  
-  .dark pre {
-    padding: 14px;
-    font-size: 0.85rem;
-  }
-  
-  .dark table {
-    font-size: 0.9rem;
-  }
-  
-  .dark th,
-  .dark td {
-    padding: 10px 14px;
-  }
-  
-  .dark button,
-  .dark .button {
-    padding: 10px 24px;
-    font-size: 0.9rem;
-  }
-}
-
-/* ===== DECORAÇÃO ADICIONAL (OPCIONAL) ===== */
-
-/* Efeito de linha vermelha decorativa */
-.dark .section-divider::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, rgb(220, 38, 38), rgb(234, 179, 8));
-  margin: 1rem 0;
-  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
-}
-
-/* ===== HOMEPAGE PORTAL CARDS ===== */
+/* ══════════════════════════════════════
+   PORTAL CARDS
+══════════════════════════════════════ */
 
 .portal-section-label {
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: rgb(220, 38, 38) !important;
-  margin-bottom: 0.75rem !important;
+  letter-spacing: .14em;
+  font-size: .68rem;
+  font-weight: 500;
+  color: var(--c-steel-1) !important;
+  margin-bottom: .75rem !important;
   text-shadow: none !important;
   border-bottom: none !important;
   padding-bottom: 0 !important;
@@ -724,7 +511,7 @@
 
 .portal-grid {
   display: grid;
-  gap: 0.625rem;
+  gap: .5rem;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
@@ -737,52 +524,39 @@
 .portal-card {
   display: flex;
   align-items: flex-start;
-  gap: 0.875rem;
-  padding: 1.1rem 1.25rem;
-  border-radius: 5px;
-  border: 1px solid rgba(220, 38, 38, 0.18);
-  background: rgba(220, 38, 38, 0.025) !important;
+  gap: .875rem;
+  padding: 1rem 1.1rem;
+  border-radius: 4px;
+  border: 1px solid var(--c-graphite-1);
+  background: var(--c-obsidian) !important;
   text-decoration: none !important;
-  transition: all 0.25s ease;
+  transition: all .35s ease;
   color: inherit !important;
   text-shadow: none !important;
 }
 
 .portal-card:hover {
-  border-color: rgba(220, 38, 38, 0.5) !important;
-  background: rgba(220, 38, 38, 0.065) !important;
-  box-shadow: 0 0 18px rgba(220, 38, 38, 0.1), 0 4px 10px rgba(0, 0, 0, 0.35);
-  transform: translateY(-2px);
+  border-color: var(--c-graphite-2) !important;
+  background: var(--c-carbon) !important;
+  box-shadow: none;
+  transform: translateY(-1px);
   color: inherit !important;
-  text-shadow: none !important;
 }
 
 .portal-card-icon {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   line-height: 1;
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 2px;
+  color: var(--c-steel-1);
 }
 
 .portal-card-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: rgb(230, 175, 175) !important;
-  margin: 0 0 0.2rem 0 !important;
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--c-silver-3) !important;
+  margin: 0 0 .2rem 0 !important;
   text-shadow: none !important;
   border: none !important;
   padding: 0 !important;
-  line-height: 1.3;
-}
-
-.portal-card:hover .portal-card-title {
-  color: rgb(234, 179, 8) !important;
-}
-
-.portal-card-desc {
-  font-size: 0.8rem;
-  color: rgb(110, 110, 110) !important;
-  line-height: 1.45;
-  margin: 0 !important;
-  text-shadow: none !important;
-}
+  line-height:
