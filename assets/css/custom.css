@@ -560,3 +560,43 @@
   border: none !important;
   padding: 0 !important;
   line-height:
+
+/* ══ OVERRIDE DO FUNDO GERAL DO TEMA ══ */
+
+.dark body,
+.dark html,
+body.dark,
+html.dark {
+  background-color: #080808 !important;
+}
+
+/* Fundo da página principal (PaperMod usa .main ou #main) */
+.dark #main,
+.dark .main,
+.dark main#main,
+.dark .page-header,
+.dark .home-info,
+.dark .profile,
+.dark .profile-mode {
+  background-color: transparent !important;
+}
+
+/* Container central que recebe o fundo azulado */
+.dark .profile-mode .home-info,
+.dark .paginationSingle,
+.dark #content,
+.dark .post-entry,
+.dark body > *:not(header):not(footer) {
+  background-color: transparent !important;
+}
+
+/* Portal cards — fundo preto absoluto, sem herança azulada */
+.portal-card {
+  background: #0d0d0d !important;
+  border: 1px solid #181818 !important;
+}
+
+.portal-card:hover {
+  background: #111111 !important;
+  border-color: #222222 !important;
+}
