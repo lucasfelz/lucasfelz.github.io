@@ -1,33 +1,75 @@
 :root {
-  /* ── BASE ABSOLUTA ── */
-  --c-void:        #050505;   /* fundo mais profundo       */
-  --c-abyss:       #080808;   /* body background           */
-  --c-obsidian:    #0d0d0d;   /* superfície de card        */
-  --c-carbon:      #111111;   /* card elevado, hover sutil */
-  --c-graphite-1:  #181818;   /* bordas principais         */
-  --c-graphite-2:  #222222;   /* bordas hover              */
-  --c-graphite-3:  #303030;   /* separadores visíveis      */
-  --c-steel-1:     #484848;   /* labels e ícones           */
-  --c-steel-2:     #686868;   /* texto terciário           */
-  --c-steel-3:     #8a8a8a;   /* texto secundário          */
-  --c-silver-1:    #aaaaaa;   /* texto de suporte          */
-  --c-silver-2:    #c8c8c8;   /* texto de corpo principal  */
-  --c-silver-3:    #d4d4d4;   /* títulos de card           */
-  --c-lunar:       #e2e2e2;   /* títulos e headings        */
-  --c-frost:       #ebebeb;   /* h1 — máxima clareza       */
+  --c-void:        #050505;
+  --c-abyss:       #080808;
+  --c-obsidian:    #0d0d0d;
+  --c-carbon:      #111111;
+  --c-graphite-1:  #181818;
+  --c-graphite-2:  #222222;
+  --c-graphite-3:  #303030;
+  --c-steel-1:     #484848;
+  --c-steel-2:     #686868;
+  --c-steel-3:     #8a8a8a;
+  --c-silver-1:    #aaaaaa;
+  --c-silver-2:    #c8c8c8;
+  --c-silver-3:    #d4d4d4;
+  --c-lunar:       #e2e2e2;
+  --c-frost:       #ebebeb;
+  --c-accent:      #9090a0;
+  --c-accent-dim:  #404050;
 
-  /* Acento frio único (muito discreto) */
-  --c-accent:      #9090a0;   /* prata levemente azulada   */
-  --c-accent-dim:  #404050;   /* acento em bordas sutis    */
+  /* ── OVERRIDE DAS VARIÁVEIS NATIVAS DO TEMA ── */
+  --color-neutral:     0, 0, 0;
+  --color-neutral-50:  245, 245, 245;
+  --color-neutral-100: 220, 220, 220;
+  --color-neutral-200: 180, 180, 180;
+  --color-neutral-300: 150, 150, 150;
+  --color-neutral-400: 120, 120, 120;
+  --color-neutral-500: 90, 90, 90;
+  --color-neutral-600: 60, 60, 60;
+  --color-neutral-700: 20, 20, 20;
+  --color-neutral-800: 8, 8, 8;
+  --color-neutral-900: 0, 0, 0;
 }
 
 /* ══════════════════════════════════════
-   VARIÁVEIS SEMÂNTICAS
+   VARIÁVEIS DO TEMA (PaperMod/Hugo)
 ══════════════════════════════════════ */
 
 .dark {
-  background-color: var(--c-abyss);
+  --theme:         #080808;
+  --entry:         #0d0d0d;
+  --primary:       #c8c8c8;
+  --secondary:     #686868;
+  --tertiary:      #111111;
+  --content:       #c8c8c8;
+  --code-block-bg: #060606;
+  --code-bg:       #0d0d0d;
+  --border:        #181818;
+
+  background-color: #080808;
   color: var(--c-silver-2);
+}
+
+/* Força o fundo no body e html */
+.dark body,
+body.dark,
+html.dark body {
+  background-color: #080808 !important;
+}
+
+/* Remove fundos azulados herdados do tema */
+.dark #main,
+.dark .main,
+.dark main,
+.dark #content,
+.dark .page-header,
+.dark .home-info,
+.dark .profile,
+.dark .profile-mode,
+.dark .paginationSingle,
+.dark .post-entry,
+.dark body > *:not(header):not(footer) {
+  background-color: transparent !important;
 }
 
 /* ══════════════════════════════════════
@@ -559,57 +601,134 @@
   text-shadow: none !important;
   border: none !important;
   padding: 0 !important;
-  line-height:
-
-/* ══ OVERRIDE DO FUNDO GERAL DO TEMA ══ */
-
-.dark body,
-.dark html,
-body.dark,
-html.dark {
-  background-color: #080808 !important;
+  line-height: 1.3;
 }
 
-/* Fundo da página principal (PaperMod usa .main ou #main) */
-.dark #main,
-.dark .main,
-.dark main#main,
-.dark .page-header,
-.dark .home-info,
-.dark .profile,
-.dark .profile-mode {
-  background-color: transparent !important;
+.portal-card:hover .portal-card-title {
+  color: var(--c-frost) !important;
 }
 
-/* Container central que recebe o fundo azulado */
-.dark .profile-mode .home-info,
-.dark .paginationSingle,
-.dark #content,
-.dark .post-entry,
-.dark body > *:not(header):not(footer) {
-  background-color: transparent !important;
+.portal-card-desc {
+  font-size: .75rem;
+  color: var(--c-steel-1) !important;
+  line-height: 1.5;
+  margin: 0 !important;
+  text-shadow: none !important;
 }
 
-/* Portal cards — fundo preto absoluto, sem herança azulada */
-.portal-card {
-  background: #0d0d0d !important;
-  border: 1px solid #181818 !important;
+/* ══════════════════════════════════════
+   GLASSMORPHISM MÍNIMO
+══════════════════════════════════════ */
+
+.glass-surface {
+  background: rgba(13, 13, 13, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--c-graphite-1);
 }
 
-.portal-card:hover {
-  background: #111111 !important;
-  border-color: #222222 !important;
+/* ══════════════════════════════════════
+   SCROLLBAR — CARBONO
+══════════════════════════════════════ */
+
+.dark ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: var(--c-abyss);
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: var(--c-abyss);
+}
 
-.dark {
-  --theme:  #080808 !important;
-  --entry:  #0d0d0d !important;
-  --primary: #c8c8c8 !important;
-  --secondary: #686868 !important;
-  --tertiary: #111111 !important;
-  --content: #c8c8c8 !important;
-  --code-block-bg: #060606 !important;
-  --code-bg: #0d0d0d !important;
-  --border: #181818 !important;
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--c-graphite-1);
+  border-radius: 0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--c-graphite-2);
+}
+
+.dark * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-graphite-1) var(--c-abyss);
+}
+
+/* ══════════════════════════════════════
+   SELEÇÃO DE TEXTO
+══════════════════════════════════════ */
+
+.dark ::selection {
+  background-color: rgba(144, 144, 160, 0.25);
+  color: var(--c-frost);
+}
+
+.dark ::-moz-selection {
+  background-color: rgba(144, 144, 160, 0.25);
+  color: var(--c-frost);
+}
+
+/* ══════════════════════════════════════
+   ANIMAÇÕES
+══════════════════════════════════════ */
+
+.dark a,
+.dark button,
+.dark .article-title,
+.dark .tag,
+.dark .portal-card {
+  transition: all .35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark h1,
+.dark h2,
+.dark h3 {
+  animation: none !important;
+}
+
+/* ══════════════════════════════════════
+   OVERRIDES DE SEGURANÇA
+══════════════════════════════════════ */
+
+.dark [style*="color: black"],
+.dark [style*="color:#000"],
+.dark [style*="color: rgb(0, 0, 0)"],
+.dark [style*="color:black"] {
+  color: var(--c-silver-2) !important;
+}
+
+.dark [style*="background: white"],
+.dark [style*="background:#fff"],
+.dark [style*="background-color: white"] {
+  background-color: var(--c-obsidian) !important;
+}
+
+.dark article span:not([style]):not([class]),
+.dark .prose span:not([style]):not([class]) {
+  color: inherit !important;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .dark h1    { font-size: 1.75rem; }
+  .dark h2    { font-size: 1.25rem; }
+
+  .dark pre {
+    padding: 1rem;
+    font-size: .82rem;
+  }
+
+  .dark table       { font-size: .82rem; }
+  .dark th,
+  .dark td          { padding: 8px 12px; }
+
+  .dark button,
+  .dark .button {
+    padding: 9px 20px;
+    font-size: .72rem;
+  }
 }
