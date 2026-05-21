@@ -600,3 +600,16 @@ html.dark {
   background: #111111 !important;
   border-color: #222222 !important;
 }
+
+
+.dark {
+  --theme:  #080808 !important;
+  --entry:  #0d0d0d !important;
+  --primary: #c8c8c8 !important;
+  --secondary: #686868 !important;
+  --tertiary: #111111 !important;
+  --content: #c8c8c8 !important;
+  --code-block-bg: #060606 !important;
+  --code-bg: #0d0d0d !important;
+  --border: #181818 !important;
+}
