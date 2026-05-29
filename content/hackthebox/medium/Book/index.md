@@ -9,7 +9,7 @@ series: '["HackTheBox Medium"]'
 ShowTableOfContents: "true"
 showHero: true
 heroStyle: "background"
-
+---
 
 ## Informação da Máquina
 
