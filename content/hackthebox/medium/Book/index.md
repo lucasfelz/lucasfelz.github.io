@@ -91,7 +91,7 @@ Essa enumeração devela o diretório /admin/.
 
 MySQL possui um comportamento detalhadamente esmiuçado na documentação oficial: quando uma string excende o número máximo de uma coluna, ela é truncada no INSERT. Combinado com o encode do espaço em branco no cadastro, permite que o atacante crie uma conta utilizando um e-mail que já existe vinculado a outra, permitindo que o atacante tome posse dessa última. Isso é feito utilizando caracteres de encode do espaço em branco em adição ao e-mail da vítima:
 
-![img1](/img/Pasted_image_20260529014930.png)
+![img1](/img/Pasted_image_2026_0529014930.png)
 
 A aplicação insere e grava a senha, permitindo que uma tentativa de autenticação com a senha escolhida pelo atacante junto ao e-mail da vítima, resolva como a conta alvo no banco de dados.
 
@@ -142,7 +142,7 @@ x.open("GET","file:///etc/passwd");x.send();
 
 O gerador de PDF nos retorna o conteúdo completo de /etc/passwd confirmando usuários válidos na máquina. Nos interessa o usuário reader (UID 1000, home no caminho /home/reader):
 
-![img2](/img/Pasted_image_20260529020553.png).
+![img2](/img/Pasted_image_2026_0529020553.png).
 
 Nos exfiltramos a chave SSH encodando ela em base64 para não quebrar a exibição no PDF, preservando o conteúdo.
 
